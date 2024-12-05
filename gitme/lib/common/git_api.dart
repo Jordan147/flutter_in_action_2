@@ -5,7 +5,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 import '../index.dart';
-export 'package:dio/dio.dart' show DioError;
+export 'package:dio/dio.dart' show DioException;
 
 class Git {
   // 在网络请求过程中可能会需要使用当前的context信息，比如在请求失败时

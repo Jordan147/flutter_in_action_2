@@ -39,7 +39,7 @@ class _RepoItemState extends State<RepoItem> {
                 ),
                 title: Text(
                   widget.repo.owner.login,
-                  textScaleFactor: .9,
+                  textScaler: const TextScaler.linear(.9),
                 ),
                 subtitle: subtitle,
                 trailing: Text(widget.repo.language ?? '--'),
