@@ -1,13 +1,15 @@
 import '../index.dart';
 
 class HomeRoute extends StatefulWidget {
+  const HomeRoute({Key? key}) : super(key: key);
+
   @override
   _HomeRouteState createState() => _HomeRouteState();
 }
 
 class _HomeRouteState extends State<HomeRoute> {
   static const loadingTag = "##loading##"; //表尾标记
-  var _items = <Repo>[Repo()..name = loadingTag];
+  final _items = <Repo>[Repo()..name = loadingTag];
   bool hasMore = true; //是否还有数据
   int page = 1; //当前请求的是第几页
 
@@ -18,7 +20,7 @@ class _HomeRouteState extends State<HomeRoute> {
         title: Text(GmLocalizations.of(context).home),
       ),
       body: _buildBody(), // 构建主页面
-      drawer: MyDrawer(), //抽屉菜单
+      drawer: const MyDrawer(), //抽屉菜单
     );
   }
 
@@ -47,7 +49,7 @@ class _HomeRouteState extends State<HomeRoute> {
               return Container(
                 padding: const EdgeInsets.all(16.0),
                 alignment: Alignment.center,
-                child: SizedBox(
+                child: const SizedBox(
                   width: 24.0,
                   height: 24.0,
                   child: CircularProgressIndicator(strokeWidth: 2.0),
@@ -57,8 +59,8 @@ class _HomeRouteState extends State<HomeRoute> {
               //已经加载了100条数据，不再获取数据。
               return Container(
                 alignment: Alignment.center,
-                padding: EdgeInsets.all(16.0),
-                child: Text(
+                padding: const EdgeInsets.all(16.0),
+                child: const Text(
                   "没有更多了",
                   style: TextStyle(color: Colors.grey),
                 ),
@@ -68,7 +70,7 @@ class _HomeRouteState extends State<HomeRoute> {
           //显示单词列表项
           return RepoItem(_items[index]);
         },
-        separatorBuilder: (context, index) => Divider(height: .0),
+        separatorBuilder: (context, index) => const Divider(height: .0),
       );
     }
   }
@@ -82,7 +84,7 @@ class _HomeRouteState extends State<HomeRoute> {
       },
     );
     //如果返回的数据小于指定的条数，则表示没有更多数据，反之则否
-    hasMore = data.length > 0 && data.length % 20 == 0;
+    hasMore = data.isNotEmpty && data.length % 20 == 0;
     //把请求到的新数据添加到items中
     setState(() {
       _items.insertAll(_items.length - 1, data);
@@ -120,7 +122,7 @@ class MyDrawer extends StatelessWidget {
         return GestureDetector(
           child: Container(
             color: Theme.of(context).primaryColor,
-            padding: EdgeInsets.only(top: 40, bottom: 20),
+            padding: const EdgeInsets.only(top: 40, bottom: 20),
             child: Row(
               children: <Widget>[
                 Padding(
@@ -139,7 +141,7 @@ class MyDrawer extends StatelessWidget {
                   value.isLogin
                       ? value.user!.login
                       : GmLocalizations.of(context).login,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),

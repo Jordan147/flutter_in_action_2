@@ -1,4 +1,4 @@
-import 'dart:collection';
+// import 'dart:collection';
 import 'package:dio/dio.dart';
 import '../index.dart';
 
@@ -19,7 +19,7 @@ class CacheObject {
 
 class NetCache extends Interceptor {
   // 为确保迭代器顺序和对象插入时间一致顺序一致，我们使用LinkedHashMap
-  var cache = LinkedHashMap<String, CacheObject>();
+  var cache = <String, CacheObject>{};
 
   @override
   onRequest(RequestOptions options, RequestInterceptorHandler handler) async {

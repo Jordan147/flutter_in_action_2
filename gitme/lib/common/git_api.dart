@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'package:dio/adapter.dart';
+// import 'package:dio/ adapter.dart';
 import 'package:dio/dio.dart';
+import 'package:dio/io.dart';
 import '../index.dart';
 export 'package:dio/dio.dart' show DioError;
 
@@ -15,7 +16,7 @@ class Git {
 
   BuildContext? context;
   late Options _options;
-  static Dio dio = new Dio(BaseOptions(
+  static Dio dio = Dio(BaseOptions(
     baseUrl: 'https://api.github.com/',
     headers: {
       HttpHeaders.acceptHeader: "application/vnd.github.squirrel-girl-preview,"
@@ -31,15 +32,26 @@ class Git {
 
     // 在调试模式下需要抓包调试，所以我们使用代理，并禁用HTTPS证书校验
     if (!Global.isRelease) {
-      (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
-          (client) {
-        // client.findProxy = (uri) {
-        //   return 'PROXY 192.168.50.154:8888';
-        // };
-        //代理工具会提供一个抓包的自签名证书，会通不过证书校验，所以我们禁用证书校验
-        client.badCertificateCallback =
-            (X509Certificate cert, String host, int port) => true;
-      };
+      // (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
+      //     (client) {
+      //   // client.findProxy = (uri) {
+      //   //   return 'PROXY 192.168.50.154:8888';
+      //   // };
+      //   //代理工具会提供一个抓包的自签名证书，会通不过证书校验，所以我们禁用证书校验
+      //   client.badCertificateCallback =
+      //       (X509Certificate cert, String host, int port) => true;
+      // };
+      dio.httpClientAdapter = IOHttpClientAdapter(
+        createHttpClient: () {
+          // Don't trust any certificate just because their root cert is trusted.
+          final HttpClient client =
+              HttpClient(context: SecurityContext(withTrustedRoots: false));
+          // You can test the intermediate / root cert here. We just ignore it.
+          client.badCertificateCallback =
+              ((X509Certificate cert, String host, int port) => true);
+          return client;
+        },
+      );
     }
   }
 

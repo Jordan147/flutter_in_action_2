@@ -42,7 +42,7 @@ class _RepoItemState extends State<RepoItem> {
                   textScaleFactor: .9,
                 ),
                 subtitle: subtitle,
-                trailing: Text(widget.repo.language??'--'),
+                trailing: Text(widget.repo.language ?? '--'),
               ),
               // 构建项目标题和简介
               Padding(
@@ -97,28 +97,28 @@ class _RepoItemState extends State<RepoItem> {
   Widget _buildBottom() {
     const paddingWidth = 10;
     return IconTheme(
-      data: IconThemeData(
+      data: const IconThemeData(
         color: Colors.grey,
         size: 15,
       ),
       child: DefaultTextStyle(
-        style: TextStyle(color: Colors.grey, fontSize: 12),
+        style: const TextStyle(color: Colors.grey, fontSize: 12),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Builder(builder: (context) {
             var children = <Widget>[
-              Icon(Icons.star),
+              const Icon(Icons.star),
               Text(" " +
                   widget.repo.stargazers_count
                       .toString()
                       .padRight(paddingWidth)),
-              Icon(Icons.info_outline),
+              const Icon(Icons.info_outline),
               Text(" " +
                   widget.repo.open_issues_count
                       .toString()
                       .padRight(paddingWidth)),
 
-              Icon(MyIcons.fork), //我们的自定义图标
+              const Icon(MyIcons.fork), //我们的自定义图标
               Text(widget.repo.forks_count.toString().padRight(paddingWidth)),
             ];
 
@@ -128,7 +128,7 @@ class _RepoItemState extends State<RepoItem> {
 
             if (widget.repo.private == true) {
               children.addAll(<Widget>[
-                Icon(Icons.lock),
+                const Icon(Icons.lock),
                 Text(" private".padRight(paddingWidth))
               ]);
             }

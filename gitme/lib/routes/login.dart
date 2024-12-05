@@ -1,15 +1,17 @@
 import '../index.dart';
 
 class LoginRoute extends StatefulWidget {
+  const LoginRoute({Key? key}) : super(key: key);
+
   @override
   _LoginRouteState createState() => _LoginRouteState();
 }
 
 class _LoginRouteState extends State<LoginRoute> {
-  TextEditingController _unameController = new TextEditingController();
-  TextEditingController _pwdController = new TextEditingController();
+  final TextEditingController _unameController = TextEditingController();
+  final TextEditingController _pwdController = TextEditingController();
   bool pwdShow = false;
-  GlobalKey _formKey = new GlobalKey<FormState>();
+  final GlobalKey _formKey = GlobalKey<FormState>();
   bool _nameAutoFocus = true;
 
   @override
@@ -40,11 +42,13 @@ class _LoginRouteState extends State<LoginRoute> {
                   decoration: InputDecoration(
                     labelText: gm.userName,
                     hintText: gm.userName,
-                    prefixIcon: Icon(Icons.person),
+                    prefixIcon: const Icon(Icons.person),
                   ),
                   // 校验用户名（不能为空）
                   validator: (v) {
-                    return v==null||v.trim().isNotEmpty ? null : gm.userNameRequired;
+                    return v == null || v.trim().isNotEmpty
+                        ? null
+                        : gm.userNameRequired;
                   }),
               TextFormField(
                 controller: _pwdController,
@@ -52,7 +56,7 @@ class _LoginRouteState extends State<LoginRoute> {
                 decoration: InputDecoration(
                     labelText: gm.password,
                     hintText: gm.password,
-                    prefixIcon: Icon(Icons.lock),
+                    prefixIcon: const Icon(Icons.lock),
                     suffixIcon: IconButton(
                       icon: Icon(
                           pwdShow ? Icons.visibility_off : Icons.visibility),
@@ -65,17 +69,19 @@ class _LoginRouteState extends State<LoginRoute> {
                 obscureText: !pwdShow,
                 //校验密码（不能为空）
                 validator: (v) {
-                  return v==null||v.trim().isNotEmpty ? null : gm.passwordRequired;
+                  return v == null || v.trim().isNotEmpty
+                      ? null
+                      : gm.passwordRequired;
                 },
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 25),
                 child: ConstrainedBox(
-                  constraints: BoxConstraints.expand(height: 55.0),
+                  constraints: const BoxConstraints.expand(height: 55.0),
                   child: ElevatedButton(
-                   // color: Theme.of(context).primaryColor,
+                    // color: Theme.of(context).primaryColor,
                     onPressed: _onLogin,
-                   // textColor: Colors.white,
+                    // textColor: Colors.white,
                     child: Text(gm.login),
                   ),
                 ),
@@ -97,7 +103,7 @@ class _LoginRouteState extends State<LoginRoute> {
             .login(_unameController.text, _pwdController.text);
         // 因为登录页返回后，首页会build，所以我们传false，更新user后不触发更新
         Provider.of<UserModel>(context, listen: false).user = user;
-      } on DioError catch( e) {
+      } on DioError catch (e) {
         //登录失败则提示
         if (e.response?.statusCode == 401) {
           showToast(GmLocalizations.of(context).userNameOrPasswordWrong);

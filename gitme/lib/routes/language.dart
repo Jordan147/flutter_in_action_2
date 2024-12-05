@@ -1,6 +1,8 @@
 import '../index.dart';
 
 class LanguageRoute extends StatelessWidget {
+  const LanguageRoute({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     var color = Theme.of(context).primaryColor;

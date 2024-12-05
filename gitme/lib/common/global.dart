@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../index.dart';
 
@@ -22,7 +22,7 @@ class Global {
   static List<MaterialColor> get themes => _themes;
 
   // 是否为release版
-  static bool get isRelease => bool.fromEnvironment("dart.vm.product");
+  static bool get isRelease => const bool.fromEnvironment("dart.vm.product");
 
   //初始化全局信息
   static Future init() async {
@@ -35,9 +35,9 @@ class Global {
       } catch (e) {
         print(e);
       }
-    }else{
+    } else {
       // 默认主题索引为0，代表蓝色
-      profile= Profile()..theme=0;
+      profile = Profile()..theme = 0;
     }
 
     // 如果没有缓存策略，设置默认缓存策略

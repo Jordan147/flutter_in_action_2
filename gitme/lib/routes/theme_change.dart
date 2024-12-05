@@ -1,13 +1,16 @@
 import '../index.dart';
 
-class ThemeChangeRoute extends StatelessWidget{
+class ThemeChangeRoute extends StatelessWidget {
+  const ThemeChangeRoute({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(GmLocalizations.of(context).theme),
       ),
-      body: ListView( //显示主题色块
+      body: ListView(
+        //显示主题色块
         children: Global.themes.map<Widget>((e) {
           return GestureDetector(
             child: Padding(
@@ -27,4 +30,3 @@ class ThemeChangeRoute extends StatelessWidget{
     );
   }
 }
-
