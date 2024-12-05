@@ -57,7 +57,7 @@ class Git {
 
   // 登录接口，登录成功后返回用户信息
   Future<User> login(String login, String pwd) async {
-    String basic = 'Basic ' + base64.encode(utf8.encode('$login:$pwd'));
+    String basic = 'Basic ${base64.encode(utf8.encode('$login:$pwd'))}';
     var r = await dio.get(
       "/user",
       options: _options.copyWith(headers: {

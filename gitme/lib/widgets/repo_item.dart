@@ -7,7 +7,7 @@ class RepoItem extends StatefulWidget {
   final Repo repo;
 
   @override
-  _RepoItemState createState() => _RepoItemState();
+  State<RepoItem> createState() => _RepoItemState();
 }
 
 class _RepoItemState extends State<RepoItem> {
@@ -108,15 +108,11 @@ class _RepoItemState extends State<RepoItem> {
           child: Builder(builder: (context) {
             var children = <Widget>[
               const Icon(Icons.star),
-              Text(" " +
-                  widget.repo.stargazers_count
-                      .toString()
-                      .padRight(paddingWidth)),
+              Text(
+                  " ${widget.repo.stargazers_count.toString().padRight(paddingWidth)}"),
               const Icon(Icons.info_outline),
-              Text(" " +
-                  widget.repo.open_issues_count
-                      .toString()
-                      .padRight(paddingWidth)),
+              Text(
+                  " ${widget.repo.open_issues_count.toString().padRight(paddingWidth)}"),
 
               const Icon(MyIcons.fork), //我们的自定义图标
               Text(widget.repo.forks_count.toString().padRight(paddingWidth)),
