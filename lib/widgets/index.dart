@@ -14,4 +14,4 @@ export 'translate_with_expanded_painting_area.dart';
 export 'after_layout.dart';
 export 'event_bus.dart';
 export 'hit_test_blocker.dart';
-export 'code_highlight.dart';
+// export 'code_highlight.dart';

@@ -4,7 +4,7 @@ class ScaffoldRoute extends StatefulWidget {
   const ScaffoldRoute({Key? key}) : super(key: key);
 
   @override
-  _ScaffoldRouteState createState() => _ScaffoldRouteState();
+  State<ScaffoldRoute> createState() => _ScaffoldRouteState();
 }
 
 class _ScaffoldRouteState extends State<ScaffoldRoute>
@@ -37,40 +37,39 @@ class _ScaffoldRouteState extends State<ScaffoldRoute>
         children: tabs.map((e) {
           return Container(
             alignment: Alignment.center,
-            child: Text(e, textScaleFactor: 5),
+            child: Text(e, textScaler: const TextScaler.linear(5)),
           );
         }).toList(),
       ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.white,
-        shape: const CircularNotchedRectangle(),
-        child: Row(
-          children: [
-            IconButton(
-              icon: const Icon(Icons.home),
-              onPressed: () {},
-            ),
-            const SizedBox(),
-            IconButton(
-              icon: const Icon(Icons.business),
-              onPressed: () {},
-            ),
-          ],
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-        ),
+      // bottomNavigationBar: BottomAppBar(
+      //   color: Colors.white,
+      //   shape: const CircularNotchedRectangle(),
+      //   child: Row(
+      //     children: [
+      //       IconButton(
+      //         icon: const Icon(Icons.home),
+      //         onPressed: () {},
+      //       ),
+      //       const SizedBox(),
+      //       IconButton(
+      //         icon: const Icon(Icons.business),
+      //         onPressed: () {},
+      //       ),
+      //     ],
+      //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+      //   ),
+      // ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.business), label: 'Business'),
+          BottomNavigationBarItem(icon: Icon(Icons.school), label: 'School'),
+        ],
+        currentIndex: _selectedIndex,
+        fixedColor: Colors.blue,
+        onTap: _onItemTapped,
       ),
-//      bottomNavigationBar: BottomNavigationBar(
-//        items: <BottomNavigationBarItem>[
-//          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
-//          BottomNavigationBarItem(
-//              icon: Icon(Icons.business), title: Text('Business')),
-//          BottomNavigationBarItem(
-//              icon: Icon(Icons.school), title: Text('School')),
-//        ],
-//        currentIndex: _selectedIndex,
-//        fixedColor: Colors.blue,
-//        onTap: _onItemTapped,
-//      ),
       floatingActionButton:
           FloatingActionButton(child: const Icon(Icons.add), onPressed: _onAdd),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

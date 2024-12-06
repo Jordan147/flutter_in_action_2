@@ -1,8 +1,8 @@
 import 'dart:math';
+
+import 'package:flukit/src/extra_info_constraints.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'extra_info_constraints.dart';
-
 
 typedef SliverFlexibleHeaderBuilder = Widget Function(
   BuildContext context,
@@ -12,10 +12,10 @@ typedef SliverFlexibleHeaderBuilder = Widget Function(
 
 class SliverFlexibleHeader extends StatelessWidget {
   const SliverFlexibleHeader({
-    Key? key,
+    super.key,
     this.visibleExtent = 0,
     required this.builder,
-  }) : super(key: key);
+  });
 
   final SliverFlexibleHeaderBuilder builder;
   final double visibleExtent;
@@ -40,10 +40,10 @@ class SliverFlexibleHeader extends StatelessWidget {
 
 class _SliverFlexibleHeader extends SingleChildRenderObjectWidget {
   const _SliverFlexibleHeader({
-    Key? key,
-    required Widget child,
+    super.key,
+    required Widget super.child,
     this.visibleExtent = 0,
-  }) : super(key: key, child: child);
+  });
   final double visibleExtent;
 
   @override

@@ -23,7 +23,7 @@ class CodeHighlight extends _BaseWidget {
         );
 
   @override
-  _CodeHighlightState createState() => _CodeHighlightState();
+  State<CodeHighlight> createState() => _CodeHighlightState();
 }
 
 class _CodeHighlightState extends _BaseState<CodeHighlight> {
@@ -93,7 +93,7 @@ class MarkdownWidget extends _BaseWidget {
         );
 
   @override
-  _MarkdownWidgetState createState() => _MarkdownWidgetState();
+  State<MarkdownWidget> createState() => _MarkdownWidgetState();
 }
 
 class _MarkdownWidgetState extends _BaseState<MarkdownWidget> {
@@ -305,7 +305,7 @@ class HighlightTheme {
   }
 
   @override
-  int get hashCode => hashValues(light, dark);
+  int get hashCode => Object.hash(light, dark);
 }
 
 abstract class _BaseWidget extends StatefulWidget {
