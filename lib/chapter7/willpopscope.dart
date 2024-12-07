@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class WillPopScopeTestRoute extends StatefulWidget {
-  const WillPopScopeTestRoute({Key? key}) : super(key: key);
+  const WillPopScopeTestRoute({super.key});
 
   @override
   WillPopScopeTestRouteState createState() {
@@ -14,15 +14,14 @@ class WillPopScopeTestRouteState extends State<WillPopScopeTestRoute> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
+    return PopScope(
+      onPopInvokedWithResult: (context, result) async {
         if (_lastPressedAt == null ||
-            DateTime.now().difference(_lastPressedAt!) > const Duration(seconds: 1)) {
+            DateTime.now().difference(_lastPressedAt!) >
+                const Duration(seconds: 1)) {
           //两次点击间隔超过1秒则重新计时
           _lastPressedAt = DateTime.now();
-          return false;
         }
-        return true;
       },
       child: Container(
         alignment: Alignment.center,

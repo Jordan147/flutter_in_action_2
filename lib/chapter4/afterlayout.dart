@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import '../common.dart';
 
 class AfterLayoutRoute extends StatefulWidget {
-  const AfterLayoutRoute({Key? key}) : super(key: key);
+  const AfterLayoutRoute({super.key});
 
   @override
-  _AfterLayoutRouteState createState() => _AfterLayoutRouteState();
+  State<AfterLayoutRoute> createState() => _AfterLayoutRouteState();
 }
 
 class _AfterLayoutRouteState extends State<AfterLayoutRoute> {

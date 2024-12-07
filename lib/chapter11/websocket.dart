@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:web_socket_channel/io.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 class WebSocketRoute extends StatefulWidget {
+  const WebSocketRoute({super.key});
+
   @override
-  _WebSocketRouteState createState() => _WebSocketRouteState();
+  State<WebSocketRoute> createState() => _WebSocketRouteState();
 }
 
 class _WebSocketRouteState extends State<WebSocketRoute> {

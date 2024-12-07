@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AnimatedSwitcherCounterRoute extends StatefulWidget {
-  const AnimatedSwitcherCounterRoute({Key? key}) : super(key: key);
+  const AnimatedSwitcherCounterRoute({super.key});
 
   @override
-  _AnimatedSwitcherCounterRouteState createState() =>
+  State<AnimatedSwitcherCounterRoute> createState() =>
       _AnimatedSwitcherCounterRouteState();
 }
 
@@ -21,7 +21,7 @@ class _AnimatedSwitcherCounterRouteState
           AnimatedSwitcher(
             duration: const Duration(milliseconds: 400),
             transitionBuilder: (Widget child, Animation<double> animation) {
-              return ScaleTransition(child: child, scale: animation);
+              return ScaleTransition(scale: animation, child: child);
             },
             child: Text(
               '$_count',

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AnimatedSwitcherRoute extends StatefulWidget {
-  const AnimatedSwitcherRoute({Key? key}) : super(key: key);
+  const AnimatedSwitcherRoute({super.key});
 
   @override
-  _AnimatedSwitcherRouteState createState() => _AnimatedSwitcherRouteState();
+  State<AnimatedSwitcherRoute> createState() => _AnimatedSwitcherRouteState();
 }
 
 class _AnimatedSwitcherRouteState extends State<AnimatedSwitcherRoute> {
@@ -25,14 +25,14 @@ class _AnimatedSwitcherRouteState extends State<AnimatedSwitcherRoute> {
                   end: const Offset(0, 0),
                 );
                 return MySlideTransition(
-                  child: child,
                   position: tween.animate(animation),
+                  child: child,
                 );
               },
               child: Text(
                 "$_count",
                 key: ValueKey<int>(_count),
-                textScaleFactor: 3,
+                textScaler: const TextScaler.linear(3),
               ),
             ),
           ),
@@ -73,15 +73,15 @@ class _AnimatedSwitcherRouteState extends State<AnimatedSwitcherRoute> {
       duration: const Duration(milliseconds: 400),
       transitionBuilder: (Widget child, Animation<double> animation) {
         return SlideTransitionX(
-          child: FadeTransition(child: child, opacity: animation),
           direction: direction,
           position: animation,
+          child: FadeTransition(opacity: animation, child: child),
         );
       },
       child: Text(
         "$_count",
         key: ValueKey<int>(_count),
-        textScaleFactor: 3,
+        textScaler: const TextScaler.linear(3),
       ),
     );
   }
@@ -89,11 +89,11 @@ class _AnimatedSwitcherRouteState extends State<AnimatedSwitcherRoute> {
 
 class MySlideTransition extends AnimatedWidget {
   const MySlideTransition({
-    Key? key,
+    super.key,
     required Animation<Offset> position,
     this.transformHitTests = true,
     required this.child,
-  }) : super(key: key, listenable: position);
+  }) : super(listenable: position);
 
   final bool transformHitTests;
 
@@ -116,12 +116,12 @@ class MySlideTransition extends AnimatedWidget {
 
 class SlideTransitionX extends AnimatedWidget {
   SlideTransitionX({
-    Key? key,
+    super.key,
     required Animation<double> position,
     this.transformHitTests = true,
     this.direction = AxisDirection.down,
     required this.child,
-  }) : super(key: key, listenable: position) {
+  }) : super(listenable: position) {
     switch (direction) {
       case AxisDirection.up:
         _tween = Tween(begin: const Offset(0, 1), end: const Offset(0, 0));

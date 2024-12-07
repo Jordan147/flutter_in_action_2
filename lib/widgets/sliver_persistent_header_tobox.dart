@@ -1,5 +1,6 @@
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+
 import 'extra_info_constraints.dart';
 
 typedef SliverPersistentHeaderToBoxBuilder = Widget Function(
@@ -10,15 +11,14 @@ typedef SliverPersistentHeaderToBoxBuilder = Widget Function(
 
 class SliverPersistentHeaderToBox extends StatelessWidget {
   SliverPersistentHeaderToBox({
-    Key? key,
+    super.key,
     required Widget child,
-  })  : builder = ((a, b, c) => child),
-        super(key: key);
+  }) : builder = ((a, b, c) => child);
 
-  SliverPersistentHeaderToBox.builder({
-    Key? key,
+  const SliverPersistentHeaderToBox.builder({
+    super.key,
     required this.builder,
-  }) : super(key: key);
+  });
 
   final SliverPersistentHeaderToBoxBuilder builder;
 
@@ -40,9 +40,8 @@ class SliverPersistentHeaderToBox extends StatelessWidget {
 
 class _SliverPersistentHeaderToBox extends SingleChildRenderObjectWidget {
   const _SliverPersistentHeaderToBox({
-    Key? key,
-    Widget? child,
-  }) : super(key: key, child: child);
+    super.child,
+  });
 
   @override
   RenderObject createRenderObject(BuildContext context) {

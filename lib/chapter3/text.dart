@@ -2,10 +2,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class TextRoute extends StatefulWidget {
-  const TextRoute({Key? key}) : super(key: key);
+  const TextRoute({super.key});
 
   @override
-  _TextRouteState createState() => _TextRouteState();
+  State<TextRoute> createState() => _TextRouteState();
 }
 
 class _TextRouteState extends State<TextRoute> {
@@ -39,7 +39,7 @@ class _TextRouteState extends State<TextRoute> {
           ),
           const Text(
             "Hello world",
-            textScaleFactor: 1.5,
+            textScaler: TextScaler.linear(1.5),
           ),
           Text(
             "Hello world " * 6, //字符串重复六次

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class FormTestRoute extends StatefulWidget {
-  const FormTestRoute({Key? key}) : super(key: key);
+  const FormTestRoute({super.key});
 
   @override
-  _FormTestRouteState createState() => _FormTestRouteState();
+  State<FormTestRoute> createState() => _FormTestRouteState();
 }
 
 class _FormTestRouteState extends State<FormTestRoute> {

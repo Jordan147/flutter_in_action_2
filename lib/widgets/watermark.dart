@@ -1,15 +1,14 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'dart:ui' as ui;
 import 'dart:math' as math;
+import 'dart:ui' as ui;
+
+import 'package:flutter/widgets.dart';
 
 class WaterMark extends StatefulWidget {
-  WaterMark({
-    Key? key,
+  const WaterMark({
+    super.key,
     this.repeat = ImageRepeat.repeat,
     required this.painter,
-  }) : super(key: key);
+  });
 
   /// 单元水印画笔
   final WaterMarkPainter painter;
@@ -78,7 +77,7 @@ class _WaterMarkState extends State<WaterMark> {
     // 绘制单元水印并获取其大小
     final size = widget.painter.paintUnit(
       canvas,
-      MediaQueryData.fromWindow(ui.window).devicePixelRatio,
+      MediaQueryData.fromView(View.of(context)).devicePixelRatio,
     );
     final picture = recorder.endRecording();
     //将单元水印导为图片并缓存起来
@@ -203,7 +202,7 @@ class TextWaterMarkPainter extends WaterMarkPainter {
     //构建文本画笔
     TextPainter painter = TextPainter(
       textDirection: TextDirection.ltr,
-      textScaleFactor: devicePixelRatio,
+      textScaler: TextScaler.linear(devicePixelRatio),
     );
     //添加文本和样式
     painter.text = TextSpan(text: text, style: _textStyle);

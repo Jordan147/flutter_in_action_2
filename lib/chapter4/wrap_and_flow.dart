@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class WrapAndFlowRoute extends StatelessWidget {
-  const WrapAndFlowRoute({Key? key}) : super(key: key);
+  const WrapAndFlowRoute({super.key});
 
   @override
   Widget build(BuildContext context) {

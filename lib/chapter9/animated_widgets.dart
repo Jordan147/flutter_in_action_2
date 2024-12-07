@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AnimatedWidgetsTest extends StatefulWidget {
-  const AnimatedWidgetsTest({Key? key}) : super(key: key);
+  const AnimatedWidgetsTest({super.key});
 
   @override
-  _AnimatedWidgetsTestState createState() => _AnimatedWidgetsTestState();
+  State<AnimatedWidgetsTest> createState() => _AnimatedWidgetsTestState();
 }
 
 class _AnimatedWidgetsTestState extends State<AnimatedWidgetsTest> {
@@ -88,6 +88,8 @@ class _AnimatedWidgetsTestState extends State<AnimatedWidgetsTest> {
             ),
           ),
           AnimatedDefaultTextStyle(
+            style: _style,
+            duration: duration,
             child: GestureDetector(
               child: const Text("hello world"),
               onTap: () {
@@ -100,15 +102,13 @@ class _AnimatedWidgetsTestState extends State<AnimatedWidgetsTest> {
                 });
               },
             ),
-            style: _style,
-            duration: duration,
           ),
           AnimatedOpacity(
             opacity: _opacity,
             duration: duration,
             child: TextButton(
               style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue)),
+                  backgroundColor: WidgetStateProperty.all(Colors.blue)),
               onPressed: () {
                 setState(() {
                   _opacity = 0.2;
@@ -153,13 +153,13 @@ class _AnimatedWidgetsTestState extends State<AnimatedWidgetsTest> {
 
 class AnimatedDecoratedBox1 extends StatefulWidget {
   const AnimatedDecoratedBox1({
-    Key? key,
+    super.key,
     required this.decoration,
     required this.child,
     this.curve = Curves.linear,
     required this.duration,
     this.reverseDuration,
-  }) : super(key: key);
+  });
 
   final BoxDecoration decoration;
   final Widget child;
@@ -168,7 +168,7 @@ class AnimatedDecoratedBox1 extends StatefulWidget {
   final Duration? reverseDuration;
 
   @override
-  _AnimatedDecoratedBox1State createState() => _AnimatedDecoratedBox1State();
+  State<AnimatedDecoratedBox1> createState() => _AnimatedDecoratedBox1State();
 }
 
 class _AnimatedDecoratedBox1State extends State<AnimatedDecoratedBox1>
@@ -239,16 +239,12 @@ class _AnimatedDecoratedBox1State extends State<AnimatedDecoratedBox1>
 
 class AnimatedDecoratedBox extends ImplicitlyAnimatedWidget {
   const AnimatedDecoratedBox({
-    Key? key,
+    super.key,
     required this.decoration,
     required this.child,
-    Curve curve = Curves.linear,
-    required Duration duration,
-  }) : super(
-          key: key,
-          curve: curve,
-          duration: duration,
-        );
+    super.curve,
+    required super.duration,
+  });
   final BoxDecoration decoration;
   final Widget child;
 

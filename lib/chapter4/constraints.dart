@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SizeConstraintsRoute extends StatelessWidget {
-  const SizeConstraintsRoute({Key? key}) : super(key: key);
+  const SizeConstraintsRoute({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,18 +49,22 @@ class SizeConstraintsRoute extends StatelessWidget {
             ),
             SizedBox(width: 80.0, height: 80.0, child: redBox),
             ConstrainedBox(
-              constraints: const BoxConstraints(minWidth: 60.0, minHeight: 60.0),
+              constraints:
+                  const BoxConstraints(minWidth: 60.0, minHeight: 60.0),
               //父
               child: ConstrainedBox(
-                constraints: const BoxConstraints(minWidth: 90.0, minHeight: 20.0),
+                constraints:
+                    const BoxConstraints(minWidth: 90.0, minHeight: 20.0),
                 //子
                 child: redBox,
               ),
             ),
             ConstrainedBox(
-              constraints: const BoxConstraints(minWidth: 90.0, minHeight: 20.0),
+              constraints:
+                  const BoxConstraints(minWidth: 90.0, minHeight: 20.0),
               child: ConstrainedBox(
-                constraints: const BoxConstraints(minWidth: 60.0, minHeight: 60.0),
+                constraints:
+                    const BoxConstraints(minWidth: 60.0, minHeight: 60.0),
                 child: redBox,
               ),
             ),

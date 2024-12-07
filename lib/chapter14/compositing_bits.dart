@@ -1,11 +1,10 @@
-import 'dart:async';
 import 'dart:math' as math;
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 
-
 class CustomRotatedBoxTest extends StatelessWidget {
-  const CustomRotatedBoxTest({Key? key}) : super(key: key);
+  const CustomRotatedBoxTest({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,16 +19,15 @@ class CustomRotatedBoxTest extends StatelessWidget {
     //   ),
     // );
 
-
     return const Center(
-      child:  RepaintBoundary(
+      child: RepaintBoundary(
         child: Text(
           "A",
-          textScaleFactor: 5,
+          textScaler: TextScaler.linear(5),
         ),
       ),
     );
-    
+
     // return const Center(
     //   child: const RotatedBox(
     //     quarterTurns: 2,
@@ -37,7 +35,7 @@ class CustomRotatedBoxTest extends StatelessWidget {
     //       child: Center(
     //         child: Text(
     //           "A",
-    //           textScaleFactor: 5,
+    //           TextScaler.linear(5),
     //         ),
     //       ),
     //     ),
@@ -47,7 +45,7 @@ class CustomRotatedBoxTest extends StatelessWidget {
 }
 
 class CustomRotatedBox extends SingleChildRenderObjectWidget {
-  const CustomRotatedBox({Key? key, Widget? child}) : super(key: key, child: child);
+  const CustomRotatedBox({super.key, super.child});
 
   @override
   RenderObject createRenderObject(BuildContext context) {
@@ -152,18 +150,18 @@ class CustomRenderRotatedBox extends RenderBox
     context.paintChild(child!, offset);
   }
 
-
   //子树中递归查找是否存在绘制边界
   needCompositing() {
     bool result = false;
     _visit(RenderObject child) {
       if (child.isRepaintBoundary) {
         result = true;
-        return ;
+        return;
       } else {
         child.visitChildren(_visit);
       }
     }
+
     visitChildren(_visit);
     return result;
   }
@@ -182,7 +180,6 @@ class CustomRenderRotatedBox extends RenderBox
       _transformLayer.layer = null;
     }
   }
-
 
   @override
   void dispose() {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AnimatedListRoute extends StatefulWidget {
-  const AnimatedListRoute({Key? key}) : super(key: key);
+  const AnimatedListRoute({super.key});
 
   @override
-  _AnimatedListRouteState createState() => _AnimatedListRouteState();
+  State<AnimatedListRoute> createState() => _AnimatedListRouteState();
 }
 
 class _AnimatedListRouteState extends State<AnimatedListRoute> {
@@ -46,6 +46,9 @@ class _AnimatedListRouteState extends State<AnimatedListRoute> {
 
   Widget buildAddBtn() {
     return Positioned(
+      bottom: 30,
+      left: 0,
+      right: 0,
       child: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
@@ -54,9 +57,6 @@ class _AnimatedListRouteState extends State<AnimatedListRoute> {
           print('添加 $counter');
         },
       ),
-      bottom: 30,
-      left: 0,
-      right: 0,
     );
   }
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../common.dart';
 
 class ResponsiveColumn extends StatelessWidget {
-  const ResponsiveColumn({Key? key, required this.children}) : super(key: key);
+  const ResponsiveColumn({super.key, required this.children});
 
   final List<Widget> children;
 
@@ -11,20 +11,20 @@ class ResponsiveColumn extends StatelessWidget {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         if (constraints.maxWidth < 200) {
-          return Column(children: children, mainAxisSize: MainAxisSize.min);
+          return Column(mainAxisSize: MainAxisSize.min, children: children);
         } else {
           var _children = <Widget>[];
           for (var i = 0; i < children.length; i += 2) {
             if (i + 1 < children.length) {
               _children.add(Row(
-                children: [children[i], children[i + 1]],
                 mainAxisSize: MainAxisSize.min,
+                children: [children[i], children[i + 1]],
               ));
             } else {
               _children.add(children[i]);
             }
           }
-          return Column(children: _children, mainAxisSize: MainAxisSize.min);
+          return Column(mainAxisSize: MainAxisSize.min, children: _children);
         }
       },
     );
@@ -32,7 +32,7 @@ class ResponsiveColumn extends StatelessWidget {
 }
 
 class LayoutBuilderRoute extends StatelessWidget {
-  const LayoutBuilderRoute({Key? key}) : super(key: key);
+  const LayoutBuilderRoute({super.key});
 
   @override
   Widget build(BuildContext context) {

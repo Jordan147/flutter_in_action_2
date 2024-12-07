@@ -2,7 +2,7 @@ import 'package:flutter/material.dart' hide Page;
 import '../common.dart';
 
 class TabViewRoute extends StatelessWidget {
-  const TabViewRoute({Key? key}) : super(key: key);
+  const TabViewRoute({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +14,10 @@ class TabViewRoute extends StatelessWidget {
 }
 
 class TabViewRoute1 extends StatefulWidget {
-  const TabViewRoute1({Key? key}) : super(key: key);
+  const TabViewRoute1({super.key});
 
   @override
-  _TabViewRoute1State createState() => _TabViewRoute1State();
+  State<TabViewRoute1> createState() => _TabViewRoute1State();
 }
 
 class _TabViewRoute1State extends State<TabViewRoute1>
@@ -48,7 +48,7 @@ class _TabViewRoute1State extends State<TabViewRoute1>
           return KeepAliveWrapper(
             child: Container(
               alignment: Alignment.center,
-              child: Text(e, textScaleFactor: 5),
+              child: Text(e, textScaler: const TextScaler.linear(5)),
             ),
           );
         }).toList(),
@@ -65,7 +65,7 @@ class _TabViewRoute1State extends State<TabViewRoute1>
 }
 
 class TabViewRoute2 extends StatelessWidget {
-  const TabViewRoute2({Key? key}) : super(key: key);
+  const TabViewRoute2({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +85,7 @@ class TabViewRoute2 extends StatelessWidget {
             return KeepAliveWrapper(
               child: Container(
                 alignment: Alignment.center,
-                child: Text(e, textScaleFactor: 5),
+                child: Text(e, textScaler: const TextScaler.linear(5)),
               ),
             );
           }).toList(),

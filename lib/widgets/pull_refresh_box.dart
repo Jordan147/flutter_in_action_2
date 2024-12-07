@@ -3,11 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' hide RefreshCallback;
 import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/widgets.dart';
 import '../common.dart';
 
 class PullRefreshScope extends StatefulWidget {
-  const PullRefreshScope({Key? key, this.child}) : super(key: key);
+  const PullRefreshScope({super.key, this.child});
 
   final Widget? child;
 
@@ -42,7 +41,7 @@ class SliverPullRefreshIndicator extends StatefulWidget {
   /// The [onRefresh] argument will be called when pulled far enough to trigger
   /// a refresh.
   const SliverPullRefreshIndicator({
-    Key? key,
+    super.key,
     this.refreshTriggerPullDistance = 100,
     this.refreshIndicatorExtent = 60,
     this.duration = const Duration(milliseconds: 200),
@@ -54,8 +53,7 @@ class SliverPullRefreshIndicator extends StatefulWidget {
           refreshTriggerPullDistance >= refreshIndicatorExtent,
           'The refresh indicator cannot take more space in its final state '
           'than the amount initially created by overscrolling.',
-        ),
-        super(key: key);
+        );
 
   /// duration for up to header
   final Duration duration;
@@ -111,9 +109,9 @@ class SliverPullRefreshIndicator extends StatefulWidget {
     double width = min(22, pulledExtent);
     if (refreshState == RefreshIndicatorMode.refresh) {
       widget = SizedBox(
-        child: CircularProgressIndicator(strokeWidth: 2),
         width: width,
         height: width,
+        child: CircularProgressIndicator(strokeWidth: 2),
       );
     } else {
       widget = Transform.rotate(

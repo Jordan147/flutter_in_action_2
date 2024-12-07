@@ -4,10 +4,10 @@ import 'package:flutter/widgets.dart';
 
 class AfterLayout extends SingleChildRenderObjectWidget {
   const AfterLayout({
-    Key? key,
+    super.key,
     required this.callback,
-    Widget? child,
-  }) : super(key: key, child: child);
+    super.child,
+  });
 
   @override
   RenderObject createRenderObject(BuildContext context) {
@@ -19,6 +19,7 @@ class AfterLayout extends SingleChildRenderObjectWidget {
       BuildContext context, RenderAfterLayout renderObject) {
     renderObject.callback = callback;
   }
+
   /// [callback] will be triggered after the layout phase ends.
   final ValueSetter<RenderAfterLayout> callback;
 }
@@ -37,14 +38,11 @@ class RenderAfterLayout extends RenderProxyBox {
     // callback(this);
     SchedulerBinding.instance
         .addPostFrameCallback((timeStamp) => callback(this));
-
   }
 
   /// 组件在在屏幕坐标中的起始偏移坐标
   Offset get offset => localToGlobal(Offset.zero);
+
   /// 组件在屏幕上占有的矩形空间区域
   Rect get rect => offset & size;
 }
-
-
-

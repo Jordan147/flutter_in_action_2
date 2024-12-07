@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import '../widgets/index.dart';
 
 class GradientButtonRoute extends StatefulWidget {
-  const GradientButtonRoute({Key? key}) : super(key: key);
+  const GradientButtonRoute({super.key});
 
   @override
-  _GradientButtonRouteState createState() => _GradientButtonRouteState();
+  State<GradientButtonRoute> createState() => _GradientButtonRouteState();
 }
 
 class _GradientButtonRouteState extends State<GradientButtonRoute> {
@@ -17,21 +17,21 @@ class _GradientButtonRouteState extends State<GradientButtonRoute> {
         GradientButton(
           colors: const [Colors.orange, Colors.red],
           height: 50.0,
-          child: const Text("Submit"),
           onPressed: onTap,
+          child: const Text("Submit"),
         ),
         GradientButton(
           height: 50.0,
           colors: [Colors.lightGreen, Colors.green.shade700],
-          child: const Text("Submit"),
           onPressed: onTap,
+          child: const Text("Submit"),
         ),
         GradientButton(
           height: 50.0,
           //borderRadius: const BorderRadius.all(Radius.circular(5)),
           colors: [Colors.lightBlue.shade300, Colors.blueAccent],
-          child: const Text("Submit"),
           onPressed: onTap,
+          child: const Text("Submit"),
         ),
       ],
     );

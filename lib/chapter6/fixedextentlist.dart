@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_in_action_2/routes.dart';
 
 class FixedExtentList extends StatelessWidget {
-  const FixedExtentList({Key? key}) : super(key: key);
+  const FixedExtentList({super.key});
 
   @override
   Widget build(BuildContext context) {

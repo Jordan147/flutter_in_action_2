@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ScaffoldRoute extends StatefulWidget {
-  const ScaffoldRoute({Key? key}) : super(key: key);
+  const ScaffoldRoute({super.key});
 
   @override
   State<ScaffoldRoute> createState() => _ScaffoldRouteState();
@@ -71,7 +71,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute>
         onTap: _onItemTapped,
       ),
       floatingActionButton:
-          FloatingActionButton(child: const Icon(Icons.add), onPressed: _onAdd),
+          FloatingActionButton(onPressed: _onAdd, child: const Icon(Icons.add)),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
@@ -87,8 +87,8 @@ class _ScaffoldRouteState extends State<ScaffoldRoute>
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

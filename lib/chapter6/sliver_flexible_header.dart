@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../common.dart';
 
 class SliverFlexibleHeaderRoute extends StatefulWidget {
-  const SliverFlexibleHeaderRoute({Key? key}) : super(key: key);
+  const SliverFlexibleHeaderRoute({super.key});
 
   @override
   State<SliverFlexibleHeaderRoute> createState() =>

@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PullRefreshTestRoute extends StatelessWidget {
-  const PullRefreshTestRoute({Key? key}) : super(key: key);
+  const PullRefreshTestRoute({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +37,9 @@ class PullRefreshTestRoute extends StatelessWidget {
     double width = min(25, pulledExtent);
     if (refreshState == RefreshIndicatorMode.refresh) {
       widget = SizedBox(
-        child: const CircularProgressIndicator(strokeWidth: 2),
         width: width,
         height: width,
+        child: const CircularProgressIndicator(strokeWidth: 2),
       );
     } else {
       widget = Transform.rotate(

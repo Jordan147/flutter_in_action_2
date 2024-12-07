@@ -4,14 +4,13 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_in_action_2/common.dart';
 
 class PaintTest extends StatefulWidget {
-  const PaintTest({Key? key}) : super(key: key);
+  const PaintTest({super.key});
 
   @override
   State<PaintTest> createState() => _PaintTestState();
 }
 
 class _PaintTestState extends State<PaintTest> {
-
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -21,7 +20,7 @@ class _PaintTestState extends State<PaintTest> {
           const ChessWidget(),
           ElevatedButton(
             onPressed: () {
-              setState(() => null);
+              setState(() {});
             },
             child: const Text("setState"),
           ),
@@ -32,7 +31,7 @@ class _PaintTestState extends State<PaintTest> {
 }
 
 class ChessWidget extends LeafRenderObjectWidget {
-  const ChessWidget({Key? key}) : super(key: key);
+  const ChessWidget({super.key});
 
   @override
   RenderObject createRenderObject(BuildContext context) {
@@ -69,7 +68,6 @@ class RenderChess extends RenderBox {
       ..picture = recorder.endRecording();
   }
 
-
   @override
   void paint(PaintingContext context, Offset offset) {
     Rect rect = offset & size;
@@ -91,4 +89,3 @@ class RenderChess extends RenderBox {
     super.dispose();
   }
 }
-

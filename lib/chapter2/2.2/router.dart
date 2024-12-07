@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class RouterTestRoute extends StatelessWidget {
-  const RouterTestRoute({Key? key}) : super(key: key);
+  const RouterTestRoute({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +28,9 @@ class RouterTestRoute extends StatelessWidget {
 
 class TipRoute extends StatelessWidget {
   const TipRoute({
-    Key? key,
+    super.key,
     required this.text, // 接收一个text参数
-  }) : super(key: key);
+  });
   final String text;
 
   @override

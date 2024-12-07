@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ImageInternalTestRoute extends StatelessWidget {
+  const ImageInternalTestRoute({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -17,19 +19,19 @@ class ImageInternalTestRoute extends StatelessWidget {
 
 class MyImage extends StatefulWidget {
   const MyImage({
-    Key? key,
+    super.key,
     required this.imageProvider,
-  })  :super(key: key);
+  });
 
   final ImageProvider imageProvider;
 
   @override
-  _MyImageState createState() => _MyImageState();
+  State<MyImage> createState() => _MyImageState();
 }
 
 class _MyImageState extends State<MyImage> {
-   ImageStream? _imageStream;
-   ImageInfo? _imageInfo;
+  ImageStream? _imageStream;
+  ImageInfo? _imageInfo;
 
   @override
   void didChangeDependencies() {

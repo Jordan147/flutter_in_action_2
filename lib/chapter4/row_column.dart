@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CenterColumnRoute extends StatelessWidget {
-  const CenterColumnRoute({Key? key}) : super(key: key);
+  const CenterColumnRoute({super.key});
 
   @override
   Widget build(BuildContext context) {

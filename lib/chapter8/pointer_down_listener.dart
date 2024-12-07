@@ -2,8 +2,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 class PointerDownListener extends SingleChildRenderObjectWidget {
-  const PointerDownListener({Key? key, this.onPointerDown, Widget? child})
-      : super(key: key, child: child);
+  const PointerDownListener({super.key, this.onPointerDown, super.child});
 
   final PointerDownEventListener? onPointerDown;
 
@@ -32,7 +31,7 @@ class RenderPointerDownListener extends RenderProxyBox {
 }
 
 class PointerDownListenerRoute extends StatelessWidget {
-  const PointerDownListenerRoute({Key? key}) : super(key: key);
+  const PointerDownListenerRoute({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,4 +41,3 @@ class PointerDownListenerRoute extends StatelessWidget {
     );
   }
 }
-

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ScaleAnimationRoute extends StatefulWidget {
-  const ScaleAnimationRoute({Key? key}) : super(key: key);
+  const ScaleAnimationRoute({super.key});
 
   @override
-  _ScaleAnimationRouteState createState() => _ScaleAnimationRouteState();
+  State<ScaleAnimationRoute> createState() => _ScaleAnimationRouteState();
 }
 
 //需要继承TickerProvider，如果有多个AnimationController，则应该使用TickerProviderStateMixin。
@@ -58,5 +58,4 @@ class _ScaleAnimationRouteState extends State<ScaleAnimationRoute>
     controller.dispose();
     super.dispose();
   }
-
 }

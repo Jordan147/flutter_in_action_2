@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
 class GradientButton extends StatelessWidget {
-  const GradientButton({Key? key,
+  const GradientButton({
+    super.key,
     this.colors,
     this.width,
     this.height,
     this.onPressed,
     this.borderRadius,
     required this.child,
-  }) : super(key: key);
+  });
 
   // 渐变色数组
   final List<Color>? colors;

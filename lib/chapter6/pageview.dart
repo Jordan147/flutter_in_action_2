@@ -1,14 +1,12 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import '../routes.dart';
 import 'dart:math' as math;
 
 class PageViewTest extends StatefulWidget {
-  const PageViewTest({Key? key}) : super(key: key);
+  const PageViewTest({super.key});
 
   @override
-  _PageViewTestState createState() => _PageViewTestState();
+  State<PageViewTest> createState() => _PageViewTestState();
 }
 
 class _PageViewTestState extends State<PageViewTest> {
@@ -48,7 +46,7 @@ class _PageViewTestState extends State<PageViewTest> {
   }
 
   Widget buildConfigPage(context) {
-    var size = MediaQueryData.fromWindow(window).size;
+    var size = MediaQueryData.fromView(View.of(context)).size;
     // return LayoutBuilder(builder: (context,constraints){
     //   print(constraints);
     //   return Text("");
@@ -231,16 +229,16 @@ class _PageViewTestState extends State<PageViewTest> {
 
 class Page extends StatefulWidget {
   const Page({
-    Key? key,
+    super.key,
     required this.text,
     required this.buildType,
-  }) : super(key: key);
+  });
 
   final String text;
   final int buildType;
 
   @override
-  _PageState createState() => _PageState();
+  State<Page> createState() => _PageState();
 }
 
 class _PageState extends State<Page> {
@@ -263,7 +261,8 @@ class _PageState extends State<Page> {
   }
 
   Widget buildNumber() {
-    return Center(child: Text(widget.text, textScaleFactor: 5));
+    return Center(
+        child: Text(widget.text, textScaler: const TextScaler.linear(5)));
   }
 //
 // @override
@@ -272,9 +271,9 @@ class _PageState extends State<Page> {
 
 class Page1 extends StatefulWidget {
   const Page1({
-    Key? key,
+    super.key,
     required this.pageController,
-  }) : super(key: key);
+  });
   final PageController pageController;
 
   @override
@@ -334,8 +333,7 @@ class _Page1State extends State<Page1> {
 //BouncingScrollPhysics b;
 
 class ObserveOverscrollPhysics extends AlwaysScrollableScrollPhysics {
-  const ObserveOverscrollPhysics(this.onOverscrollChanged, {ScrollPhysics? parent})
-      : super(parent: parent);
+  const ObserveOverscrollPhysics(this.onOverscrollChanged, {super.parent});
 
   final ValueChanged<double> onOverscrollChanged;
 

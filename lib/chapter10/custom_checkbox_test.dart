@@ -4,7 +4,7 @@ import 'custom_checkbox.dart';
 import 'custom_checkbox_2.dart';
 
 class CustomCheckboxTest extends StatefulWidget {
-  const CustomCheckboxTest({Key? key}) : super(key: key);
+  const CustomCheckboxTest({super.key});
 
   @override
   State<CustomCheckboxTest> createState() => _CustomCheckboxTestState();

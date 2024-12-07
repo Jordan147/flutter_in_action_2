@@ -11,10 +11,10 @@ typedef SliverFlexibleHeaderBuilder = Widget Function(
 
 class SliverFlexibleHeader extends StatelessWidget {
   const SliverFlexibleHeader({
-    Key? key,
+    super.key,
     this.visibleExtent = 0,
     required this.builder,
-  }) : super(key: key);
+  });
 
   final SliverFlexibleHeaderBuilder builder;
   final double visibleExtent;
@@ -39,10 +39,9 @@ class SliverFlexibleHeader extends StatelessWidget {
 
 class _SliverFlexibleHeader extends SingleChildRenderObjectWidget {
   const _SliverFlexibleHeader({
-    Key? key,
-    required Widget child,
+    required Widget super.child,
     this.visibleExtent = 0,
-  }) : super(key: key, child: child);
+  });
   final double visibleExtent;
 
   @override

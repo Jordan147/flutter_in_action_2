@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DecoratedBoxRoute extends StatelessWidget {
-  const DecoratedBoxRoute({Key? key}) : super(key: key);
+  const DecoratedBoxRoute({super.key});
 
   @override
   Widget build(BuildContext context) {

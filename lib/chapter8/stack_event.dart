@@ -2,14 +2,14 @@ import 'package:flutter/material.dart' hide Page;
 import '../common.dart';
 
 class StackEventTest extends StatelessWidget {
-  const StackEventTest({Key? key}) : super(key: key);
+  const StackEventTest({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ListPage(children: [
       Page('事件共享', const StickerTest()),
       Page('水印', const _WaterMarkTest(), padding: false),
-      Page('HitTestBehaviorTest', const HitTestBehaviorTest(),padding: false),
+      Page('HitTestBehaviorTest', const HitTestBehaviorTest(), padding: false),
       Page('所有子节点都可以响应事件', const AllChildrenCanResponseEvent()),
       Page('手势', const GestureHitTestBlockerTest()),
     ]);
@@ -17,7 +17,7 @@ class StackEventTest extends StatelessWidget {
 }
 
 class HitTestBehaviorTest extends StatelessWidget {
-  const HitTestBehaviorTest({Key? key}) : super(key: key);
+  const HitTestBehaviorTest({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class HitTestBehaviorTest extends StatelessWidget {
 }
 
 class AllChildrenCanResponseEvent extends StatelessWidget {
-  const AllChildrenCanResponseEvent({Key? key}) : super(key: key);
+  const AllChildrenCanResponseEvent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +68,7 @@ class AllChildrenCanResponseEvent extends StatelessWidget {
 }
 
 class _WaterMarkTest extends StatelessWidget {
-  const _WaterMarkTest({Key? key}) : super(key: key);
+  const _WaterMarkTest();
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +97,7 @@ class _WaterMarkTest extends StatelessWidget {
 }
 
 class StickerTest extends StatelessWidget {
-  const StickerTest({Key? key}) : super(key: key);
+  const StickerTest({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -122,7 +122,7 @@ class StickerTest extends StatelessWidget {
 }
 
 class GestureHitTestBlockerTest extends StatelessWidget {
-  const GestureHitTestBlockerTest({Key? key}) : super(key: key);
+  const GestureHitTestBlockerTest({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -145,4 +145,3 @@ class GestureHitTestBlockerTest extends StatelessWidget {
     );
   }
 }
-

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ValueListenableRoute extends StatefulWidget {
-  const ValueListenableRoute({Key? key}) : super(key: key);
+  const ValueListenableRoute({super.key});
 
   @override
   State<ValueListenableRoute> createState() => _ValueListenableState();
@@ -26,13 +26,15 @@ class _ValueListenableState extends State<ValueListenableRoute> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 child!,
-                Text('$value 次',textScaleFactor: textScaleFactor),
+                Text('$value 次',
+                    textScaler: const TextScaler.linear(textScaleFactor)),
               ],
             );
           },
           valueListenable: _counter,
           // 当子组件不依赖变化的数据，且子组件收件开销比较大时，指定 child 属性来缓存子组件非常有用
-          child: const Text('点击了 ', textScaleFactor: textScaleFactor),
+          child: const Text('点击了 ',
+              textScaler: TextScaler.linear(textScaleFactor)),
         ),
       ),
       floatingActionButton: FloatingActionButton(

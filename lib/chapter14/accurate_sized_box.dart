@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 class AccurateSizedBox extends SingleChildRenderObjectWidget {
   const AccurateSizedBox({
-    Key? key,
+    super.key,
     this.width = 0,
     this.height = 0,
-    required Widget child,
-  }) : super(key: key, child: child);
+    required Widget super.child,
+  });
 
   final double width;
   final double height;
@@ -63,7 +63,7 @@ class RenderAccurateSizedBox extends RenderProxyBoxWithHitTestBehavior {
 }
 
 class AccurateSizedBoxRoute extends StatelessWidget {
-  const AccurateSizedBoxRoute({Key? key}) : super(key: key);
+  const AccurateSizedBoxRoute({super.key});
 
   @override
   Widget build(BuildContext context) {

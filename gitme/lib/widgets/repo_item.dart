@@ -13,7 +13,7 @@ class RepoItem extends StatefulWidget {
 class _RepoItemState extends State<RepoItem> {
   @override
   Widget build(BuildContext context) {
-    var subtitle;
+    dynamic subtitle;
     return Padding(
       padding: const EdgeInsets.only(top: 8.0),
       child: Material(

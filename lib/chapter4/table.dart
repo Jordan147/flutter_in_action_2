@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TableRoute extends StatelessWidget {
-  const TableRoute({Key? key}) : super(key: key);
+  const TableRoute({super.key});
 
   @override
   Widget build(BuildContext context) {

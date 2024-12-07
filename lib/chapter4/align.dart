@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AlignRoute extends StatelessWidget {
-  const AlignRoute({Key? key}) : super(key: key);
+  const AlignRoute({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,8 @@ class AlignRoute extends StatelessWidget {
             ),
           )
         ]
-            .map((e) => Padding(padding: const EdgeInsets.only(top: 16), child: e))
+            .map((e) =>
+                Padding(padding: const EdgeInsets.only(top: 16), child: e))
             .toList(),
       ),
     );

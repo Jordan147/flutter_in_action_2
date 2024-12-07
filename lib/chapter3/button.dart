@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ButtonRoute extends StatefulWidget {
-  const ButtonRoute({Key? key}) : super(key: key);
+  const ButtonRoute({super.key});
 
   @override
-  _ButtonRouteState createState() => _ButtonRouteState();
+  State<ButtonRoute> createState() => _ButtonRouteState();
 }
 
 class _ButtonRouteState extends State<ButtonRoute> {
@@ -45,7 +45,7 @@ class _ButtonRouteState extends State<ButtonRoute> {
         ),
       ]
           .map(
-              (e) => Padding(child: e, padding: const EdgeInsets.only(top: 20)))
+              (e) => Padding(padding: const EdgeInsets.only(top: 20), child: e))
           .toList(),
     );
   }

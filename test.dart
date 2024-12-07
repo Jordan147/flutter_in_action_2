@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:path/path.dart' as path;
 
 const TAG = "\$";
@@ -12,17 +13,17 @@ void walk() {
   var list = src.listSync();
   var template = File("./template.dart").readAsStringSync();
   File file;
-  list.forEach((f) {
+  for (var f in list) {
     if (FileSystemEntity.isFileSync(f.path)) {
       file = File(f.path);
       var paths = path.basename(f.path).split(".");
       String name = paths.first;
-      if (paths.last.toLowerCase() != "json" || name.startsWith("_")) return;
-      if (name.startsWith("_")) return;
+      if (paths.last.toLowerCase() != "json" || name.startsWith("_")) continue;
+      if (name.startsWith("_")) continue;
       //下面生成模板
       var map = json.decode(file.readAsStringSync());
       //为了避免重复导入相同的包，我们用Set来保存生成的import语句。
-      var set = Set<String>();
+      var set = <String>{};
       StringBuffer attrs = StringBuffer();
       (map as Map<String, dynamic>).forEach((key, v) {
         if (key.startsWith("_")) return;
@@ -48,7 +49,7 @@ void walk() {
       //将生成的模板输出
       File("$DIST$name.dart").writeAsStringSync(dist);
     }
-  });
+  }
 }
 
 String changeFirstChar(String str, [bool upper = true]) {
@@ -100,7 +101,7 @@ String format(String fmt, List<Object> params) {
     } else {
       throw Exception("Missing parameter for string format");
     }
-    throw Exception("Invalid format string: " + m[0].toString());
+    throw Exception("Invalid format string: ${m[0]}");
   }
 
   return fmt.replaceAllMapped("%s", replace);

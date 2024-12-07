@@ -2,11 +2,11 @@ import 'package:flutter/widgets.dart';
 
 class LayoutLogPrint<T> extends StatelessWidget {
   const LayoutLogPrint({
-    Key? key,
+    super.key,
     this.tag,
     this.debugPrint = print,
     required this.child,
-  }) : super(key: key);
+  });
 
   final Widget child;
   final Function(Object? object) debugPrint;
@@ -23,5 +23,3 @@ class LayoutLogPrint<T> extends StatelessWidget {
     });
   }
 }
-
-

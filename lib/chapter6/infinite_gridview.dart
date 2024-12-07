@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class InfiniteGridView extends StatefulWidget {
-  const InfiniteGridView({Key? key}) : super(key: key);
+  const InfiniteGridView({super.key});
 
   @override
-  _InfiniteGridViewState createState() => _InfiniteGridViewState();
+  State<InfiniteGridView> createState() => _InfiniteGridViewState();
 }
 
 class _InfiniteGridViewState extends State<InfiniteGridView> {

@@ -4,8 +4,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 class HttpTestRoute extends StatefulWidget {
+  const HttpTestRoute({super.key});
+
   @override
-  _HttpTestRouteState createState() => _HttpTestRouteState();
+  State<HttpTestRoute> createState() => _HttpTestRouteState();
 }
 
 class _HttpTestRouteState extends State<HttpTestRoute> {
@@ -18,10 +20,10 @@ class _HttpTestRouteState extends State<HttpTestRoute> {
       child: Column(
         children: <Widget>[
           ElevatedButton(
-            child: Text("获取百度首页"),
             onPressed: _loading ? null : request,
+            child: Text("获取百度首页"),
           ),
-          Container(
+          SizedBox(
             width: MediaQuery.of(context).size.width - 50.0,
             child: Text(_text.replaceAll(RegExp(r"\s"), "")),
           )

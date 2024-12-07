@@ -4,10 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DialogTestRoute extends StatefulWidget {
-  const DialogTestRoute({Key? key}) : super(key: key);
+  const DialogTestRoute({super.key});
 
   @override
-  _DialogTestRouteState createState() => _DialogTestRouteState();
+  State<DialogTestRoute> createState() => _DialogTestRouteState();
 }
 
 class _DialogTestRouteState extends State<DialogTestRoute> {
@@ -549,16 +549,16 @@ class _DialogTestRouteState extends State<DialogTestRoute> {
 // 单独封装一个内部管理选中状态的复选框组件
 class DialogCheckbox extends StatefulWidget {
   const DialogCheckbox({
-    Key? key,
+    super.key,
     this.value,
     required this.onChanged,
-  }):super(key:key);
+  });
 
   final ValueChanged<bool?> onChanged;
   final bool? value;
 
   @override
-  _DialogCheckboxState createState() => _DialogCheckboxState();
+  State<DialogCheckbox> createState() => _DialogCheckboxState();
 }
 
 class _DialogCheckboxState extends State<DialogCheckbox> {

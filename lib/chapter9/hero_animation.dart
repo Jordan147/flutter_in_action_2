@@ -2,7 +2,7 @@ import 'package:flutter/material.dart' hide Page;
 import '../common.dart';
 
 class HeroAnimationRoute extends StatelessWidget {
-  const HeroAnimationRoute({Key? key}) : super(key: key);
+  const HeroAnimationRoute({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class HeroAnimationRoute extends StatelessWidget {
 
 // 路由A
 class HeroAnimationRouteA extends StatelessWidget {
-  const HeroAnimationRouteA({Key? key}) : super(key: key);
+  const HeroAnimationRouteA({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +65,7 @@ class HeroAnimationRouteA extends StatelessWidget {
 }
 
 class HeroAnimationRouteB extends StatelessWidget {
-  const HeroAnimationRouteB({Key? key}) : super(key: key);
+  const HeroAnimationRouteB({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -79,10 +79,10 @@ class HeroAnimationRouteB extends StatelessWidget {
 }
 
 class CustomHeroAnimation extends StatefulWidget {
-  const CustomHeroAnimation({Key? key}) : super(key: key);
+  const CustomHeroAnimation({super.key});
 
   @override
-  _CustomHeroAnimationState createState() => _CustomHeroAnimationState();
+  State<CustomHeroAnimation> createState() => _CustomHeroAnimationState();
 }
 
 class _CustomHeroAnimationState extends State<CustomHeroAnimation>
@@ -99,8 +99,8 @@ class _CustomHeroAnimationState extends State<CustomHeroAnimation>
 
   @override
   void initState() {
-    _controller =
-        AnimationController(vsync: this, duration: const Duration(milliseconds: 200));
+    _controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 200));
     _animation = CurvedAnimation(
       parent: _controller,
       curve: Curves.easeIn,

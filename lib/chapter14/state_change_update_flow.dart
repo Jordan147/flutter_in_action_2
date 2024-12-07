@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
 class StateChangeTest extends StatefulWidget {
-  const StateChangeTest({Key? key}) : super(key: key);
+  const StateChangeTest({super.key});
 
   @override
-  _StateChangeTestState createState() => _StateChangeTestState();
+  State<StateChangeTest> createState() => _StateChangeTestState();
 }
 
 class _StateChangeTestState extends State<StateChangeTest> {

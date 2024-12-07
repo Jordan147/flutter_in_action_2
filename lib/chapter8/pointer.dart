@@ -2,7 +2,7 @@ import 'package:flutter/material.dart' hide Page;
 import '../common.dart';
 
 class PointerRoute extends StatelessWidget {
-  const PointerRoute({Key? key}) : super(key: key);
+  const PointerRoute({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,15 +11,14 @@ class PointerRoute extends StatelessWidget {
 }
 
 class PointerMoveIndicator extends StatefulWidget {
-  const PointerMoveIndicator({Key? key}) : super(key: key);
+  const PointerMoveIndicator({super.key});
 
   @override
-  _PointerMoveIndicatorState createState() => _PointerMoveIndicatorState();
+  State<PointerMoveIndicator> createState() => _PointerMoveIndicatorState();
 }
 
 class _PointerMoveIndicatorState extends State<PointerMoveIndicator> {
   PointerEvent? _event;
-
 
   @override
   Widget build(BuildContext context) {

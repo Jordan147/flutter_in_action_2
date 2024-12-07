@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'dart:math' as math;
 
 class ScrollViewConfiguration extends StatefulWidget {
-  const ScrollViewConfiguration({Key? key}) : super(key: key);
+  const ScrollViewConfiguration({super.key});
 
   @override
-  _ScrollViewConfigurationState createState() =>
+  State<ScrollViewConfiguration> createState() =>
       _ScrollViewConfigurationState();
 }
 
@@ -26,7 +24,11 @@ class _ScrollViewConfigurationState extends State<ScrollViewConfiguration> {
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Center(child: Text('$index',textScaleFactor: 2,)),
+          child: Center(
+              child: Text(
+            '$index',
+            textScaler: const TextScaler.linear(2),
+          )),
         );
       },
     );
@@ -55,6 +57,3 @@ class _ScrollViewConfigurationState extends State<ScrollViewConfiguration> {
     );
   }
 }
-
-
-

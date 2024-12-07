@@ -4,11 +4,11 @@ import 'package:flutter/widgets.dart';
 
 class TurnBox extends StatefulWidget {
   const TurnBox({
-    Key? key,
+    super.key,
     this.turns = .0,
     this.speed = 200,
     required this.child,
-  }) : super(key: key);
+  });
 
   /// Controls the rotation of the child.
   ///
@@ -22,7 +22,7 @@ class TurnBox extends StatefulWidget {
   final Widget child;
 
   @override
-  _TurnBoxState createState() =>  _TurnBoxState();
+  State<TurnBox> createState() => _TurnBoxState();
 }
 
 class _TurnBoxState extends State<TurnBox> with SingleTickerProviderStateMixin {
@@ -31,7 +31,7 @@ class _TurnBoxState extends State<TurnBox> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _controller =  AnimationController(
+    _controller = AnimationController(
       vsync: this,
       lowerBound: -double.infinity,
       upperBound: double.infinity,

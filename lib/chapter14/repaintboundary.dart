@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import '../common.dart';
 
 class RepaintBoundaryTest extends StatefulWidget {
-  const RepaintBoundaryTest({Key? key}) : super(key: key);
+  const RepaintBoundaryTest({super.key});
 
   @override
-  _RepaintBoundaryTestState createState() => _RepaintBoundaryTestState();
+  State<RepaintBoundaryTest> createState() => _RepaintBoundaryTestState();
 }
 
 class _RepaintBoundaryTestState extends State<RepaintBoundaryTest> {

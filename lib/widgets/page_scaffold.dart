@@ -4,12 +4,12 @@ import 'package:flukit/flukit.dart';
 
 class PageScaffold extends StatefulWidget {
   const PageScaffold({
-    Key? key,
+    super.key,
     required this.title,
     required this.body,
     this.padding = false,
     this.showLog = false,
-  }) : super(key: key);
+  });
 
   final String title;
   final Widget body;
@@ -110,8 +110,8 @@ class Page {
             widget = VerticalLogPanel(child: widget);
           }
           return LogListenerScope(
-            child: widget,
             logEmitter: logEmitter,
+            child: widget,
           );
         },
       ),
@@ -121,9 +121,9 @@ class Page {
 
 class ListPage extends StatelessWidget {
   const ListPage({
-    Key? key,
+    super.key,
     required this.children,
-  }) : super(key: key);
+  });
 
   final List<Page> children;
 

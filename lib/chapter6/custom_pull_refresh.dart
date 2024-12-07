@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../common.dart';
 
 class PullRefreshBoxRoute extends StatefulWidget {
-  const PullRefreshBoxRoute({Key? key}) : super(key: key);
+  const PullRefreshBoxRoute({super.key});
 
   @override
   State<PullRefreshBoxRoute> createState() => _PullRefreshBoxRouteState();

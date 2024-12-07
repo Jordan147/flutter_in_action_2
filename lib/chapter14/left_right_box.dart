@@ -5,11 +5,10 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 class LeftRightBox extends MultiChildRenderObjectWidget {
-  LeftRightBox({
-    Key? key,
-    required List<Widget> children,
-  })  : assert(children.length == 2, "只能传两个children"),
-        super(key: key, children: children);
+  const LeftRightBox({
+    super.key,
+    required super.children,
+  }) : assert(children.length == 2, "只能传两个children");
 
   @override
   RenderObject createRenderObject(BuildContext context) {
@@ -25,8 +24,9 @@ class RenderLeftRight extends RenderBox
         RenderBoxContainerDefaultsMixin<RenderBox, LeftRightParentData> {
   @override
   void setupParentData(RenderBox child) {
-    if (child.parentData is! LeftRightParentData)
+    if (child.parentData is! LeftRightParentData) {
       child.parentData = LeftRightParentData();
+    }
   }
 
   @override
@@ -81,7 +81,7 @@ class RenderLeftRight extends RenderBox
 }
 
 class LeftRightBoxTestRoute extends StatelessWidget {
-  const LeftRightBoxTestRoute({Key? key}) : super(key: key);
+  const LeftRightBoxTestRoute({super.key});
 
   @override
   Widget build(BuildContext context) {

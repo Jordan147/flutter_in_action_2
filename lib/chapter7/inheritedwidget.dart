@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class InheritedWidgetTestRoute extends StatefulWidget {
-  const InheritedWidgetTestRoute({Key? key}) : super(key: key);
+  const InheritedWidgetTestRoute({super.key});
 
   @override
-  _InheritedWidgetTestRouteState createState() =>
+  State<InheritedWidgetTestRoute> createState() =>
       _InheritedWidgetTestRouteState();
 }
 
@@ -38,10 +38,10 @@ class _InheritedWidgetTestRouteState extends State<InheritedWidgetTestRoute> {
 
 class ShareDataWidget extends InheritedWidget {
   const ShareDataWidget({
-    Key? key,
+    super.key,
     required this.data,
-    required Widget child,
-  }) : super(key: key, child: child);
+    required super.child,
+  });
 
   final int data; //需要在子树中共享的数据，保存点击次数
 
@@ -55,8 +55,8 @@ class ShareDataWidget extends InheritedWidget {
 
   //该回调决定当data发生变化时，是否通知子树中依赖data的Widget
   @override
-  bool updateShouldNotify(ShareDataWidget old) {
-    return old.data != data;
+  bool updateShouldNotify(ShareDataWidget oldWidget) {
+    return oldWidget.data != data;
   }
 }
 

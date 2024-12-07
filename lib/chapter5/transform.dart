@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 class TransformRoute extends StatelessWidget {
-  const TransformRoute({Key? key}) : super(key: key);
+  const TransformRoute({super.key});
 
   @override
   Widget build(BuildContext context) {

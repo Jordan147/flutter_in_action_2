@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ImageAndIconRoute extends StatelessWidget {
-  const ImageAndIconRoute({Key? key}) : super(key: key);
+  const ImageAndIconRoute({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +83,7 @@ class ImageAndIconRoute extends StatelessWidget {
 }
 
 class IconFontsRoute extends StatelessWidget {
-  const IconFontsRoute({Key? key}) : super(key: key);
+  const IconFontsRoute({super.key});
 
   @override
   Widget build(BuildContext context) {

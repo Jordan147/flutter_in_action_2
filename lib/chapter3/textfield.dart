@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class FocusTestRoute extends StatefulWidget {
-  const FocusTestRoute({Key? key}) : super(key: key);
+  const FocusTestRoute({super.key});
 
   @override
-  _FocusTestRouteState createState() => _FocusTestRouteState();
+  State<FocusTestRoute> createState() => _FocusTestRouteState();
 }
 
 class _FocusTestRouteState extends State<FocusTestRoute> {
@@ -20,11 +20,22 @@ class _FocusTestRouteState extends State<FocusTestRoute> {
           TextField(
             autofocus: true,
             focusNode: focusNode1, //关联focusNode1
-            toolbarOptions: const ToolbarOptions(
-              selectAll: true,
-              copy: true,
-              paste: true,
-            ),
+            // toolbarOptions: const ToolbarOptions(
+            //   selectAll: true,
+            //   copy: true,
+            //   paste: true,
+            // ),
+            contextMenuBuilder: (context, editableTextState) {
+              final List<ContextMenuButtonItem> buttonItems =
+                  editableTextState.contextMenuButtonItems;
+              buttonItems.removeWhere((ContextMenuButtonItem buttonItem) {
+                return buttonItem.type == ContextMenuButtonType.cut;
+              });
+              return AdaptiveTextSelectionToolbar.buttonItems(
+                anchors: editableTextState.contextMenuAnchors,
+                buttonItems: buttonItems,
+              );
+            },
             decoration: const InputDecoration(labelText: "input1"),
           ),
           TextField(

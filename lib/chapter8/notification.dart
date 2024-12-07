@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NotificationRoute extends StatefulWidget {
-  const NotificationRoute({Key? key}) : super(key: key);
+  const NotificationRoute({super.key});
 
   @override
   NotificationRouteState createState() {
@@ -24,7 +24,7 @@ class NotificationRouteState extends State<NotificationRoute> {
       child: NotificationListener<MyNotification>(
         onNotification: (notification) {
           setState(() {
-            _msg += notification.msg + "  ";
+            _msg += "${notification.msg}  ";
           });
           return false;
         },

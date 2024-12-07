@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
 class SwitchAndCheckBoxRoute extends StatefulWidget {
-  const SwitchAndCheckBoxRoute({Key? key}) : super(key: key);
+  const SwitchAndCheckBoxRoute({super.key});
 
   @override
-  _SwitchAndCheckBoxRouteState createState() =>
-       _SwitchAndCheckBoxRouteState();
+  State<SwitchAndCheckBoxRoute> createState() => _SwitchAndCheckBoxRouteState();
 }
 
 class _SwitchAndCheckBoxRouteState extends State<SwitchAndCheckBoxRoute> {

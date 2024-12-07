@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ClipRoute extends StatelessWidget {
-  const ClipRoute({Key? key}) : super(key: key);
+  const ClipRoute({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -76,9 +76,9 @@ class MyClipper extends CustomClipper<Rect> {
 
 class MyClipRect extends StatelessWidget {
   const MyClipRect({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final Widget child;
 

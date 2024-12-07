@@ -40,7 +40,6 @@ class SliverFlexibleHeader extends StatelessWidget {
 
 class _SliverFlexibleHeader extends SingleChildRenderObjectWidget {
   const _SliverFlexibleHeader({
-    super.key,
     required Widget super.child,
     this.visibleExtent = 0,
   });
@@ -60,7 +59,7 @@ class _SliverFlexibleHeader extends SingleChildRenderObjectWidget {
 
 class _FlexibleHeaderRenderSliver extends RenderSliverSingleBoxAdapter {
   _FlexibleHeaderRenderSliver(double visibleExtent)
-      : this._visibleExtent = visibleExtent;
+      : _visibleExtent = visibleExtent;
   double _lastOverScroll = 0;
   double _lastScrollOffset = 0;
   double _visibleExtent = 0;

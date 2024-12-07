@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class StaggerRoute extends StatefulWidget {
-  const StaggerRoute({Key? key}) : super(key: key);
+  const StaggerRoute({super.key});
 
   @override
-  _StaggerRouteState createState() => _StaggerRouteState();
+  State<StaggerRoute> createState() => _StaggerRouteState();
 }
 
 class _StaggerRouteState extends State<StaggerRoute>
@@ -19,7 +19,6 @@ class _StaggerRouteState extends State<StaggerRoute>
       vsync: this,
     );
   }
-
 
   @override
   void dispose() {
@@ -67,9 +66,9 @@ class _StaggerRouteState extends State<StaggerRoute>
 
 class StaggerAnimation extends StatelessWidget {
   StaggerAnimation({
-    Key? key,
+    super.key,
     required this.controller,
-  }) : super(key: key) {
+  }) {
     //高度动画
     height = Tween<double>(
       begin: .0,

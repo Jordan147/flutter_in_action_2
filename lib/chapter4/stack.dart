@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class StackRoute extends StatelessWidget {
-  const StackRoute({Key? key}) : super(key: key);
+  const StackRoute({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,11 +12,11 @@ class StackRoute extends StatelessWidget {
         clipBehavior: Clip.hardEdge,
         children: <Widget>[
           Container(
+            color: Colors.red,
             child: const Text(
               "Hello world",
               style: TextStyle(color: Colors.white),
             ),
-            color: Colors.red,
           ),
           const Positioned(
             left: 18.0,

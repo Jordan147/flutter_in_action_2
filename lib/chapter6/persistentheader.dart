@@ -2,7 +2,7 @@ import 'package:flutter/material.dart' hide Page;
 import '../common.dart';
 
 class PersistentHeaderRoute extends StatelessWidget {
-  const PersistentHeaderRoute({Key? key}) : super(key: key);
+  const PersistentHeaderRoute({super.key});
 
   @override
   Widget build(BuildContext context) {

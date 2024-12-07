@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/scheduler.dart';
 
 class CustomCenter1 extends SingleChildRenderObjectWidget {
-  const CustomCenter1({Key? key, required Widget child})
-      : super(key: key, child: child);
+  const CustomCenter1({super.key, required Widget super.child});
 
   @override
   RenderObject createRenderObject(BuildContext context) {
@@ -58,8 +56,7 @@ class RenderCustomCenter1 extends RenderBox
 }
 
 class CustomCenter2 extends SingleChildRenderObjectWidget {
-  const CustomCenter2({Key? key, required Widget child})
-      : super(key: key, child: child);
+  const CustomCenter2({super.key, required Widget super.child});
 
   @override
   RenderObject createRenderObject(BuildContext context) {
@@ -96,7 +93,7 @@ class RenderCustomCenter2 extends RenderShiftedBox {
 /// 思考题：能否使用CustomSingleChildLayout 来实现Center呢
 
 class MyCenterRoute extends StatefulWidget {
-  const MyCenterRoute({Key? key}) : super(key: key);
+  const MyCenterRoute({super.key});
 
   @override
   State<MyCenterRoute> createState() => _MyCenterRouteState();

@@ -2,13 +2,14 @@ import 'package:flutter/material.dart' hide Page;
 import '../common.dart';
 
 class NestedScrollViewRoute extends StatelessWidget {
-  const NestedScrollViewRoute({Key? key}) : super(key: key);
+  const NestedScrollViewRoute({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ListPage(children: [
       Page('嵌套 ListView', const NestedListView(), withScaffold: false),
-      Page('Snap 效果的AppBar(bug版)', const SnapAppBarWithBug(), withScaffold: false),
+      Page('Snap 效果的AppBar(bug版)', const SnapAppBarWithBug(),
+          withScaffold: false),
       Page('Snap 效果的AppBar（无bug）', const SnapAppBar2(), withScaffold: false),
       Page('嵌套 TabBarView', const NestedTabBarView1(), withScaffold: false),
       Page('复杂的嵌套 TabBarView', const NestedTabBarView2(), withScaffold: false),
@@ -17,7 +18,7 @@ class NestedScrollViewRoute extends StatelessWidget {
 }
 
 class NestedListView extends StatelessWidget {
-  const NestedListView({Key? key}) : super(key: key);
+  const NestedListView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +52,7 @@ class NestedListView extends StatelessWidget {
 }
 
 class SnapAppBarWithBug extends StatelessWidget {
-  const SnapAppBarWithBug({Key? key}) : super(key: key);
+  const SnapAppBarWithBug({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +85,7 @@ class SnapAppBarWithBug extends StatelessWidget {
 }
 
 class SnapAppBar2 extends StatefulWidget {
-  const SnapAppBar2({Key? key}) : super(key: key);
+  const SnapAppBar2({super.key});
 
   @override
   State<SnapAppBar2> createState() => _SnapAppBar2State();
@@ -146,7 +147,7 @@ class _SnapAppBar2State extends State<SnapAppBar2> {
 }
 
 class NestedTabBarView1 extends StatelessWidget {
-  const NestedTabBarView1({Key? key}) : super(key: key);
+  const NestedTabBarView1({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -213,7 +214,7 @@ class NestedTabBarView1 extends StatelessWidget {
 }
 
 class NestedTabBarView2 extends StatelessWidget {
-  const NestedTabBarView2({Key? key}) : super(key: key);
+  const NestedTabBarView2({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -243,14 +244,14 @@ class NestedTabBarView2 extends StatelessWidget {
                     builder: (BuildContext context, double shrinkOffset,
                         bool overlapsContent) {
                       return Material(
+                        elevation: overlapsContent ? 4 : 0,
+                        shadowColor: Theme.of(context).appBarTheme.shadowColor,
                         child: Container(
                           color: overlapsContent
                               ? Colors.white
                               : Theme.of(context).canvasColor,
                           child: buildTabBar(_tabs),
                         ),
-                        elevation: overlapsContent ? 4 : 0,
-                        shadowColor: Theme.of(context).appBarTheme.shadowColor,
                       );
                     },
                   ),

@@ -1,8 +1,8 @@
 //导入cupertino  widget 库
 import 'package:flutter/cupertino.dart';
 
-class CupertinoTestRoute extends StatelessWidget  {
-  const CupertinoTestRoute({Key? key}) : super(key: key);
+class CupertinoTestRoute extends StatelessWidget {
+  const CupertinoTestRoute({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +14,7 @@ class CupertinoTestRoute extends StatelessWidget  {
         child: CupertinoButton(
             color: CupertinoColors.activeBlue,
             child: const Text("Press"),
-            onPressed: () {}
-        ),
+            onPressed: () {}),
       ),
     );
   }

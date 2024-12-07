@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ColorRoute extends StatefulWidget {
-  const ColorRoute({Key? key}) : super(key: key);
+  const ColorRoute({super.key});
 
   @override
-  _ColorRouteState createState() => _ColorRouteState();
+  State<ColorRoute> createState() => _ColorRouteState();
 }
 
 class _ColorRouteState extends State<ColorRoute> {
@@ -54,10 +54,10 @@ class NavBar extends StatelessWidget {
   final Color color;
 
   const NavBar({
-    Key? key,
+    super.key,
     required this.color,
     required this.title,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -77,6 +77,7 @@ class NavBar extends StatelessWidget {
           ),
         ],
       ),
+      alignment: Alignment.center,
       child: Text(
         title,
         style: TextStyle(
@@ -84,7 +85,6 @@ class NavBar extends StatelessWidget {
           color: color.computeLuminance() < 0.5 ? Colors.white : Colors.black,
         ),
       ),
-      alignment: Alignment.center,
     );
   }
 }

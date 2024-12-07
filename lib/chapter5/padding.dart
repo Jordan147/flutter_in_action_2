@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class PaddingTestRoute extends StatelessWidget {
-  const PaddingTestRoute({Key? key}) : super(key: key);
+  const PaddingTestRoute({super.key});
 
   @override
   Widget build(BuildContext context) {

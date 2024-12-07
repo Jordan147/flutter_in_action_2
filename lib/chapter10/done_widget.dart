@@ -3,11 +3,11 @@ import 'renderobject_animation_mixin.dart';
 
 class DoneWidget extends LeafRenderObjectWidget {
   const DoneWidget({
-    Key? key,
+    super.key,
     this.strokeWidth = 2.0,
     this.color = Colors.green,
     this.outline = false,
-  }) : super(key: key);
+  });
 
   //线条宽度
   final double strokeWidth;

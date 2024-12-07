@@ -2,10 +2,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class FutureAndStreamBuilderRoute extends StatefulWidget {
-  const FutureAndStreamBuilderRoute({Key? key}) : super(key: key);
+  const FutureAndStreamBuilderRoute({super.key});
 
   @override
-  _FutureAndStreamBuilderRouteState createState() =>
+  State<FutureAndStreamBuilderRoute> createState() =>
       _FutureAndStreamBuilderRouteState();
 }
 

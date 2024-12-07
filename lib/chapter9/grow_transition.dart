@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class GrowTransition extends StatelessWidget {
-  const GrowTransition({Key? key,
+  const GrowTransition({
+    super.key,
     required this.animation,
     this.child,
-  }) : super(key: key);
+  });
 
   final Widget? child;
   final Animation<double> animation;
@@ -28,10 +29,10 @@ class GrowTransition extends StatelessWidget {
 }
 
 class GrowTransitionRoute extends StatefulWidget {
-  const GrowTransitionRoute({Key? key}) : super(key: key);
+  const GrowTransitionRoute({super.key});
 
   @override
-  _GrowTransitionRouteState createState() => _GrowTransitionRouteState();
+  State<GrowTransitionRoute> createState() => _GrowTransitionRouteState();
 }
 
 //需要继承TickerProvider，如果有多个AnimationController，则应该使用TickerProviderStateMixin。
@@ -52,8 +53,8 @@ class _GrowTransitionRouteState extends State<GrowTransitionRoute>
   @override
   Widget build(BuildContext context) {
     return GrowTransition(
-      child: Image.asset("imgs/avatar.png"),
       animation: animation,
+      child: Image.asset("imgs/avatar.png"),
     );
   }
 

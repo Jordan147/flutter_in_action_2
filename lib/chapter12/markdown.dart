@@ -4,10 +4,10 @@ import 'package:webview_flutter/webview_flutter.dart';
 import '../common.dart';
 
 class MarkdownRoute extends StatefulWidget {
-  const MarkdownRoute({Key? key}) : super(key: key);
+  const MarkdownRoute({super.key});
 
   @override
-  _MarkdownRouteState createState() => _MarkdownRouteState();
+  State<MarkdownRoute> createState() => _MarkdownRouteState();
 }
 
 class _MarkdownRouteState extends State<MarkdownRoute> {
@@ -93,8 +93,8 @@ class _MarkdownRouteState extends State<MarkdownRoute> {
     Page(
       '查看图片',
       ScaleView(
-        child: Image.network(url),
         parentScrollableAxis: null,
+        child: Image.network(url),
       ),
       showLog: false,
       padding: false,
