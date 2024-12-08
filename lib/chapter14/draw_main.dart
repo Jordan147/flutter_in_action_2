@@ -21,5 +21,5 @@ void main() {
   //4.上屏，即将绘制的内容显示在屏幕上。
   final SceneBuilder builder = SceneBuilder();
   final Scene scene = rootLayer.buildScene(builder);
-  window.render(scene);
+  PlatformDispatcher.instance.views.first.render(scene);
 }
