@@ -105,7 +105,6 @@ class RenderCustomCheckbox2 extends RenderBox with RenderObjectAnimationMixin {
   void _drawCheckMark(PaintingContext context, Rect rect) {
     // 在画好背景后再画前景
     if (progress > bgAnimationInterval) {
-
       //确定中间拐点位置
       final secondOffset = Offset(
         rect.left + rect.width / 2.5,
@@ -118,7 +117,7 @@ class RenderCustomCheckbox2 extends RenderBox with RenderObjectAnimationMixin {
       );
 
       // 我们只对第三个点的位置做插值
-      final _lastOffset = Offset.lerp(
+      final vlastOffset = Offset.lerp(
         secondOffset,
         lastOffset,
         (progress - bgAnimationInterval) / (1 - bgAnimationInterval),
@@ -128,7 +127,7 @@ class RenderCustomCheckbox2 extends RenderBox with RenderObjectAnimationMixin {
       final path = Path()
         ..moveTo(rect.left + rect.width / 7, rect.top + rect.height / 2)
         ..lineTo(secondOffset.dx, secondOffset.dy)
-        ..lineTo(_lastOffset.dx, _lastOffset.dy);
+        ..lineTo(vlastOffset.dx, vlastOffset.dy);
 
       final paint = Paint()
         ..isAntiAlias = true
@@ -159,7 +158,7 @@ class RenderCustomCheckbox2 extends RenderBox with RenderObjectAnimationMixin {
       pointerId = event.pointer;
     } else if (pointerId == event.pointer) {
       // 判断手指抬起时是在组件范围内的话才触发onChange
-      if(size.contains(event.localPosition)) {
+      if (size.contains(event.localPosition)) {
         onChanged?.call(!value);
       }
     }

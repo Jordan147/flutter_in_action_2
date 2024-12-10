@@ -151,10 +151,10 @@ class NestedTabBarView1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _tabs = <String>['猜你喜欢', '今日特价', '发现更多'];
+    final vTabs = <String>['猜你喜欢', '今日特价', '发现更多'];
     // 构建 tabBar
     return DefaultTabController(
-      length: _tabs.length, // This is the number of tabs.
+      length: vTabs.length, // This is the number of tabs.
       child: Scaffold(
         body: NestedScrollView(
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
@@ -169,7 +169,7 @@ class NestedTabBarView1 extends StatelessWidget {
               //     pinned: true,
               //     forceElevated: true,
               //     bottom: TabBar(
-              //       tabs: _tabs.map((String name) => Tab(text: name)).toList(),
+              //       tabs: vTabs.map((String name) => Tab(text: name)).toList(),
               //     ),
               //   ),
               // ),
@@ -181,13 +181,13 @@ class NestedTabBarView1 extends StatelessWidget {
                 pinned: true,
                 forceElevated: true,
                 bottom: TabBar(
-                  tabs: _tabs.map((String name) => Tab(text: name)).toList(),
+                  tabs: vTabs.map((String name) => Tab(text: name)).toList(),
                 ),
               ),
             ];
           },
           body: TabBarView(
-            children: _tabs.map((String name) {
+            children: vTabs.map((String name) {
               return Builder(
                 builder: (BuildContext context) {
                   return CustomScrollView(
@@ -218,10 +218,10 @@ class NestedTabBarView2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _tabs = <String>['猜你喜欢', '今日特价', '发现更多'];
+    final vTabs = <String>['猜你喜欢', '今日特价', '发现更多'];
     // 构建 tabBar
     return DefaultTabController(
-      length: _tabs.length, // This is the number of tabs.
+      length: vTabs.length, // This is the number of tabs.
       child: Theme(
         data: Theme.of(context).copyWith(brightness: Brightness.dark),
         child: Scaffold(
@@ -250,7 +250,7 @@ class NestedTabBarView2 extends StatelessWidget {
                           color: overlapsContent
                               ? Colors.white
                               : Theme.of(context).canvasColor,
-                          child: buildTabBar(_tabs),
+                          child: buildTabBar(vTabs),
                         ),
                       );
                     },
@@ -259,7 +259,7 @@ class NestedTabBarView2 extends StatelessWidget {
               ];
             },
             body: TabBarView(
-              children: _tabs.map((String name) {
+              children: vTabs.map((String name) {
                 return Builder(
                   builder: (BuildContext context) {
                     return CustomScrollView(

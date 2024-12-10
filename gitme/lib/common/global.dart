@@ -28,10 +28,10 @@ class Global {
   static Future init() async {
     WidgetsFlutterBinding.ensureInitialized();
     _prefs = await SharedPreferences.getInstance();
-    var _profile = _prefs.getString("profile");
-    if (_profile != null) {
+    var vProfile = _prefs.getString("profile");
+    if (vProfile != null) {
       try {
-        profile = Profile.fromJson(jsonDecode(_profile));
+        profile = Profile.fromJson(jsonDecode(vProfile));
       } catch (e) {
         print(e);
       }

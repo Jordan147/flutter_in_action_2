@@ -249,6 +249,7 @@ class AnimatedDecoratedBox extends ImplicitlyAnimatedWidget {
   final Widget child;
 
   @override
+  // ignore: library_private_types_in_public_api
   _AnimatedDecoratedBoxState createState() {
     return _AnimatedDecoratedBoxState();
   }

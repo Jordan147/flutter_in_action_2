@@ -136,17 +136,17 @@ class TextWaterMarkPainter extends WaterMarkPainter {
   // Size paintUnit(Canvas canvas, double devicePixelRatio) {
   //
   //   //构建文本段落
-  //   final _textStyle = _handleTextStyle(textStyle, devicePixelRatio);
-  //   final _padding = padding * devicePixelRatio;
+  //   final vTextStyle = _handleTextStyle(textStyle, devicePixelRatio);
+  //   final vPadding = padding * devicePixelRatio;
   //
-  //   final builder = ui.ParagraphBuilder(_textStyle.getParagraphStyle(
+  //   final builder = ui.ParagraphBuilder(vTextStyle.getParagraphStyle(
   //     textDirection: textDirection,
   //     textAlign: TextAlign.start,
   //     textScaleFactor: devicePixelRatio,
   //   ));
   //   //添加要绘制的文本及样式
   //   builder
-  //     ..pushStyle(_textStyle.getTextStyle())
+  //     ..pushStyle(vTextStyle.getTextStyle())
   //     ..addText(text);
   //
   //   //layout 后我们才能知道文本占用的空间
@@ -174,13 +174,13 @@ class TextWaterMarkPainter extends WaterMarkPainter {
   //
   //   if (orgSin >= 0) {
   //     canvas.translate(
-  //       adjustWidth + _padding.left,
-  //       _padding.top,
+  //       adjustWidth + vPadding.left,
+  //       vPadding.top,
   //     );
   //   } else {
   //     canvas.translate(
-  //       _padding.left,
-  //       height + _padding.top,
+  //       vPadding.left,
+  //       height + vPadding.top,
   //     );
   //   }
   //   canvas.rotate(radians);
@@ -188,16 +188,16 @@ class TextWaterMarkPainter extends WaterMarkPainter {
   //   canvas.drawParagraph(paragraph, Offset.zero);
   //
   //   return Size(
-  //     width + adjustWidth + _padding.horizontal,
-  //     height + adjustHeight + _padding.vertical,
+  //     width + adjustWidth + vPadding.horizontal,
+  //     height + adjustHeight + vPadding.vertical,
   //   );
   // }
 
   @override
   Size paintUnit(Canvas canvas, double devicePixelRatio) {
     //根据屏幕 devicePixelRatio 对文本样式中长度相关的一些值乘以devicePixelRatio
-    final _textStyle = _handleTextStyle(devicePixelRatio);
-    final _padding = padding * devicePixelRatio;
+    final vTextStyle = _handleTextStyle(devicePixelRatio);
+    final vPadding = padding * devicePixelRatio;
 
     //构建文本画笔
     TextPainter painter = TextPainter(
@@ -205,7 +205,7 @@ class TextWaterMarkPainter extends WaterMarkPainter {
       textScaler: TextScaler.linear(devicePixelRatio),
     );
     //添加文本和样式
-    painter.text = TextSpan(text: text, style: _textStyle);
+    painter.text = TextSpan(text: text, style: vTextStyle);
     //对文本进行布局
     painter.layout();
 
@@ -229,13 +229,13 @@ class TextWaterMarkPainter extends WaterMarkPainter {
 
     if (orgSin >= 0) {
       canvas.translate(
-        adjustWidth + _padding.left,
-        _padding.top,
+        adjustWidth + vPadding.left,
+        vPadding.top,
       );
     } else {
       canvas.translate(
-        _padding.left,
-        height + _padding.top,
+        vPadding.left,
+        height + vPadding.top,
       );
     }
     canvas.rotate(radians);
@@ -243,19 +243,19 @@ class TextWaterMarkPainter extends WaterMarkPainter {
     painter.paint(canvas, Offset.zero);
 
     return Size(
-      width + adjustWidth + _padding.horizontal,
-      height + adjustHeight + _padding.vertical,
+      width + adjustWidth + vPadding.horizontal,
+      height + adjustHeight + vPadding.vertical,
     );
   }
 
   TextStyle _handleTextStyle(double devicePixelRatio) {
     var style = textStyle;
-    double _scale(attr) => attr == null ? 1.0 : devicePixelRatio;
+    double scale(attr) => attr == null ? 1.0 : devicePixelRatio;
     return style.apply(
-      decorationThicknessFactor: _scale(style.decorationThickness),
-      letterSpacingFactor: _scale(style.letterSpacing),
-      wordSpacingFactor: _scale(style.wordSpacing),
-      heightFactor: _scale(style.height),
+      decorationThicknessFactor: scale(style.decorationThickness),
+      letterSpacingFactor: scale(style.letterSpacing),
+      wordSpacingFactor: scale(style.wordSpacing),
+      heightFactor: scale(style.height),
     );
   }
 

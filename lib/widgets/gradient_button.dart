@@ -29,19 +29,19 @@ class GradientButton extends StatelessWidget {
     ThemeData theme = Theme.of(context);
 
     //确保colors数组不空
-    List<Color> _colors =
+    List<Color> vColors =
         colors ?? [theme.primaryColor, theme.primaryColorDark];
 
     return DecoratedBox(
       decoration: BoxDecoration(
-        gradient: LinearGradient(colors: _colors),
+        gradient: LinearGradient(colors: vColors),
         borderRadius: borderRadius,
         //border: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
       ),
       child: Material(
         type: MaterialType.transparency,
         child: InkWell(
-          splashColor: _colors.last,
+          splashColor: vColors.last,
           highlightColor: Colors.transparent,
           borderRadius: borderRadius,
           onTap: onPressed,

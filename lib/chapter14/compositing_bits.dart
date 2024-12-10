@@ -153,16 +153,16 @@ class CustomRenderRotatedBox extends RenderBox
   //子树中递归查找是否存在绘制边界
   needCompositing() {
     bool result = false;
-    _visit(RenderObject child) {
+    visit(RenderObject child) {
       if (child.isRepaintBoundary) {
         result = true;
         return;
       } else {
-        child.visitChildren(_visit);
+        child.visitChildren(visit);
       }
     }
 
-    visitChildren(_visit);
+    visitChildren(visit);
     return result;
   }
 

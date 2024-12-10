@@ -13,18 +13,18 @@ class ResponsiveColumn extends StatelessWidget {
         if (constraints.maxWidth < 200) {
           return Column(mainAxisSize: MainAxisSize.min, children: children);
         } else {
-          var _children = <Widget>[];
+          var vChildren = <Widget>[];
           for (var i = 0; i < children.length; i += 2) {
             if (i + 1 < children.length) {
-              _children.add(Row(
+              vChildren.add(Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [children[i], children[i + 1]],
               ));
             } else {
-              _children.add(children[i]);
+              vChildren.add(children[i]);
             }
           }
-          return Column(mainAxisSize: MainAxisSize.min, children: _children);
+          return Column(mainAxisSize: MainAxisSize.min, children: vChildren);
         }
       },
     );
@@ -37,13 +37,13 @@ class LayoutBuilderRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // return LayoutLogPrint(child:Text("xx"*20000));
-    var _children = List.filled(6, const Text("A"));
+    var vChildren = List.filled(6, const Text("A"));
     // Column在本示例中在水平方向的最大宽度为屏幕的宽度
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        SizedBox(width: 190, child: ResponsiveColumn(children: _children)),
-        ResponsiveColumn(children: _children),
+        SizedBox(width: 190, child: ResponsiveColumn(children: vChildren)),
+        ResponsiveColumn(children: vChildren),
         const LayoutLogPrint(child: Text("flutter@wendux")),
         //CustomSingleChildLayout
       ],

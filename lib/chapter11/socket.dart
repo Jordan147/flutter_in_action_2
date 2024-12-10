@@ -26,8 +26,8 @@ class SocketRoute extends StatelessWidget {
     socket.writeln();
     await socket.flush(); //发送
     //读取返回内容，按照utf8解码为字符串
-    String _response = await utf8.decoder.bind(socket).join();
+    String response = await utf8.decoder.bind(socket).join();
     await socket.close();
-    return _response;
+    return response;
   }
 }

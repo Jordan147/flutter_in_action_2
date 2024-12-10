@@ -260,7 +260,7 @@ class _DialogTestRouteState extends State<DialogTestRoute> {
   }
 
   Future<bool?> showDeleteConfirmDialog3() {
-    bool _withTree = false; //记录复选框是否选中
+    bool withTree = false; //记录复选框是否选中
     return showDialog<bool>(
       context: context,
       builder: (context) {
@@ -275,10 +275,10 @@ class _DialogTestRouteState extends State<DialogTestRoute> {
                 children: <Widget>[
                   const Text("同时删除子目录？"),
                   DialogCheckbox(
-                    value: _withTree, //默认不选中
+                    value: withTree, //默认不选中
                     onChanged: (bool? value) {
                       //更新选中状态
-                      _withTree = !_withTree;
+                      withTree = !withTree;
                     },
                   ),
                 ],
@@ -294,7 +294,7 @@ class _DialogTestRouteState extends State<DialogTestRoute> {
               child: const Text("删除"),
               onPressed: () {
                 // 将选中状态返回
-                Navigator.of(context).pop(_withTree);
+                Navigator.of(context).pop(withTree);
               },
             ),
           ],
@@ -304,7 +304,7 @@ class _DialogTestRouteState extends State<DialogTestRoute> {
   }
 
   Future<bool?> showDeleteConfirmDialog3x() {
-    bool _withTree = false; //记录复选框是否选中
+    bool withTree = false; //记录复选框是否选中
     //TargetPlatform.iOS;
     return showDialog<bool>(
       context: context,
@@ -320,13 +320,13 @@ class _DialogTestRouteState extends State<DialogTestRoute> {
                 children: <Widget>[
                   const Text("同时删除子目录？"),
                   StatefulBuilder(
-                    builder: (context, _setState) {
+                    builder: (context, setState) {
                       return Checkbox(
-                        value: _withTree, //默认不选中
+                        value: withTree, //默认不选中
                         onChanged: (bool? value) {
-                          _setState(() {
+                          setState(() {
                             //更新选中状态
-                            _withTree = !_withTree;
+                            withTree = !withTree;
                           });
                         },
                       );
@@ -345,7 +345,7 @@ class _DialogTestRouteState extends State<DialogTestRoute> {
               child: const Text("删除"),
               onPressed: () {
                 // 将选中状态返回
-                Navigator.of(context).pop(_withTree);
+                Navigator.of(context).pop(withTree);
               },
             ),
           ],
@@ -355,7 +355,7 @@ class _DialogTestRouteState extends State<DialogTestRoute> {
   }
 
   Future<bool?> showDeleteConfirmDialog4() {
-    bool _withTree = false;
+    bool withTree = false;
     return showDialog<bool>(
       context: context,
       builder: (context) {
@@ -372,10 +372,10 @@ class _DialogTestRouteState extends State<DialogTestRoute> {
                   Builder(
                     builder: (BuildContext context) {
                       return Checkbox(
-                        value: _withTree,
+                        value: withTree,
                         onChanged: (bool? value) {
                           (context as Element).markNeedsBuild();
-                          _withTree = !_withTree;
+                          withTree = !withTree;
                         },
                       );
                     },
@@ -393,7 +393,7 @@ class _DialogTestRouteState extends State<DialogTestRoute> {
               child: const Text("删除"),
               onPressed: () {
                 // 执行删除操作
-                Navigator.of(context).pop(_withTree);
+                Navigator.of(context).pop(withTree);
               },
             ),
           ],

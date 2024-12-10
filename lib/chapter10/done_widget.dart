@@ -55,7 +55,7 @@ class RenderDoneObject extends RenderBox with RenderObjectAnimationMixin {
   void doPaint(PaintingContext context, Offset offset) {
     // 可以对动画运用曲线
     Curve curve = Curves.easeIn;
-    final _progress = curve.transform(progress);
+    final vProgress = curve.transform(progress);
 
     Rect rect = offset & size;
     final paint = Paint()
@@ -90,14 +90,14 @@ class RenderDoneObject extends RenderBox with RenderObjectAnimationMixin {
 
     const adjustProgress = .6;
     //画 "勾"
-    if (_progress < adjustProgress) {
+    if (vProgress < adjustProgress) {
       //第一个点到第二个点的连线做动画(第二个点不停的变)
-      Offset _secondOffset = Offset.lerp(
+      Offset vSecondOffset = Offset.lerp(
         firstOffset,
         secondOffset,
-        _progress / adjustProgress,
+        vProgress / adjustProgress,
       )!;
-      path.lineTo(_secondOffset.dx, _secondOffset.dy);
+      path.lineTo(vSecondOffset.dx, vSecondOffset.dy);
     } else {
       //链接第一个点和第二个点
       path.lineTo(secondOffset.dx, secondOffset.dy);
@@ -106,12 +106,12 @@ class RenderDoneObject extends RenderBox with RenderObjectAnimationMixin {
         rect.right - rect.width / 5,
         rect.top + rect.height / 3.5,
       );
-      Offset _lastOffset = Offset.lerp(
+      Offset vLastOffset = Offset.lerp(
         secondOffset,
         lastOffset,
         (progress - adjustProgress) / (1 - adjustProgress),
       )!;
-      path.lineTo(_lastOffset.dx, _lastOffset.dy);
+      path.lineTo(vLastOffset.dx, vLastOffset.dy);
     }
     context.canvas.drawPath(path, paint..style = PaintingStyle.stroke);
   }

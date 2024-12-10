@@ -126,7 +126,7 @@ class RenderCustomCheckbox extends RenderBox {
         rect.top + rect.height / 4,
       );
 
-      Offset _lastOffset = Offset.lerp(
+      Offset vlastOffset = Offset.lerp(
         secondOffset,
         lastOffset,
         (progress - bgAnimationInterval) / (1 - bgAnimationInterval),
@@ -135,7 +135,7 @@ class RenderCustomCheckbox extends RenderBox {
       final path = Path()
         ..moveTo(rect.left + rect.width / 7, rect.top + rect.height / 2)
         ..lineTo(secondOffset.dx, secondOffset.dy)
-        ..lineTo(_lastOffset.dx, _lastOffset.dy);
+        ..lineTo(vlastOffset.dx, vlastOffset.dy);
 
       final paint = Paint()
         ..isAntiAlias = true

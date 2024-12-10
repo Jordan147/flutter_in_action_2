@@ -43,9 +43,9 @@ void walk() {
         className,
         className
       ]);
-      var _import = set.join(";\r\n");
-      _import += _import.isEmpty ? "" : ";";
-      dist = dist.replaceFirst("%t", _import);
+      var vImport = set.join(";\r\n");
+      vImport += vImport.isEmpty ? "" : ";";
+      dist = dist.replaceFirst("%t", vImport);
       //将生成的模板输出
       File("$DIST$name.dart").writeAsStringSync(dist);
     }

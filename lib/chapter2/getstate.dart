@@ -21,10 +21,10 @@ class _GetStateObjectRouteState extends State<GetStateObjectRoute> {
               return ElevatedButton(
                 onPressed: () {
                   // 查找父级最近的Scaffold对应的ScaffoldState对象
-                  ScaffoldState _state =
+                  ScaffoldState state0 =
                       context.findAncestorStateOfType<ScaffoldState>()!;
                   // 打开抽屉菜单
-                  _state.openDrawer();
+                  state0.openDrawer();
                 },
                 child: const Text('打开抽屉菜单1'),
               );
@@ -33,9 +33,9 @@ class _GetStateObjectRouteState extends State<GetStateObjectRoute> {
               return ElevatedButton(
                 onPressed: () {
                   // 直接通过of静态方法来获取ScaffoldState
-                  ScaffoldState _state = Scaffold.of(context);
+                  ScaffoldState state = Scaffold.of(context);
                   // 打开抽屉菜单
-                  _state.openDrawer();
+                  state.openDrawer();
                 },
                 child: const Text('打开抽屉菜单2'),
               );

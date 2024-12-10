@@ -5,21 +5,15 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 class CodeHighlight extends _BaseWidget {
   const CodeHighlight({
-    Key? key,
+    super.key,
     String? code,
-    bool lineNumber = false,
-    Brightness? brightness,
-    WebViewCreatedCallback? onRendered,
-    HighlightTheme? theme,
-    String? baseUrl,
+    super.lineNumber,
+    super.brightness,
+    super.onRendered,
+    super.theme,
+    super.baseUrl,
   }) : super(
-          key: key,
           content: code,
-          lineNumber: lineNumber,
-          brightness: brightness,
-          onRendered: onRendered,
-          theme: theme,
-          baseUrl: baseUrl,
         );
 
   @override
@@ -71,26 +65,16 @@ class _CodeHighlightState extends _BaseState<CodeHighlight> {
 
 class MarkdownWidget extends _BaseWidget {
   const MarkdownWidget({
-    Key? key,
-    String? content,
-    bool lineNumber = false,
-    String? baseUrl,
-    Brightness? brightness,
-    HighlightTheme? theme,
-    WebViewCreatedCallback? onRendered,
-    NavigationDelegate? navigationDelegate,
-    Set<JavascriptChannel>? javascriptChannels,
-  }) : super(
-          key: key,
-          content: content,
-          lineNumber: lineNumber,
-          baseUrl: baseUrl,
-          brightness: brightness,
-          onRendered: onRendered,
-          navigationDelegate: navigationDelegate,
-          javascriptChannels: javascriptChannels,
-          theme: theme,
-        );
+    super.key,
+    super.content,
+    super.lineNumber,
+    super.baseUrl,
+    super.brightness,
+    super.theme,
+    super.onRendered,
+    super.navigationDelegate,
+    super.javascriptChannels,
+  });
 
   @override
   State<MarkdownWidget> createState() => _MarkdownWidgetState();

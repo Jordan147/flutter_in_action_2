@@ -37,15 +37,15 @@ class MyApp extends StatelessWidget {
               GlobalWidgetsLocalizations.delegate,
               const GmLocalizationsDelegate()
             ],
-            localeResolutionCallback: (_locale, supportedLocales) {
+            localeResolutionCallback: (vLocale, supportedLocales) {
               if (localeModel.getLocale() != null) {
                 //如果已经选定语言，则不跟随系统
                 return localeModel.getLocale();
               } else {
                 //跟随系统
                 Locale locale;
-                if (supportedLocales.contains(_locale)) {
-                  locale = _locale!;
+                if (supportedLocales.contains(vLocale)) {
+                  locale = vLocale!;
                 } else {
                   //如果系统语言不是中文简体或美国英语，则默认使用美国英语
                   locale = const Locale('en', 'US');
