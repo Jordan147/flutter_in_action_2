@@ -40,8 +40,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  json_model:
-    path: ../../json_model
+  json_model: ^1.0.0
+    # path: ../../json_model
   json_serializable: ^6.8.0
   intl_generator: ^0.4.1
 

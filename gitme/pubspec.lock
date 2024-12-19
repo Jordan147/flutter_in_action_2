@@ -384,9 +384,10 @@ packages:
   json_model:
     dependency: "direct dev"
     description:
-      path: "../../json_model"
-      relative: true
-    source: path
+      name: json_model
+      sha256: c9a86ab62c800220cfe626fe64ab613a78bc39fc93c4ddf029b68e00b4d3fa87
+      url: "https://pub.dev"
+    source: hosted
     version: "1.0.0"
   json_serializable:
     dependency: "direct dev"
